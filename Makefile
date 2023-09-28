@@ -66,7 +66,7 @@ CUDAC := nvcc
 CC := g++
 STD_MODE := debug
 
-CUDACFLAGS := -lGL -lglfw -lX11 -lpthread -lXrandr -ldl -lm -march=native -Wall -pg
+CUDACFLAGS := -lGL -lglfw -lX11 -lpthread -lXrandr -ldl -lm -pg
 # CCFLAGS := -Wall -Wextra
 CCFLAGS := -lGL -lglfw -lX11 -lpthread -lXrandr -ldl -lm -march=native -Wall -pg #-lXi
 LDFLAGS := -lm -lncursesw -ltbb 
@@ -127,7 +127,7 @@ ifeq ($(wildcard $(SRC_DIR)),)
 endif
 
 # Include directories
-INCLUDE := $(shell find $(INC_DIR)/ -type d -printf "-I%p ") $(shell find $(SRC_DIR)/ -type d -printf "-I%p ")
+INCLUDE := -Idep $(shell find $(INC_DIR)/ -type d -printf "-I%p ") $(shell find $(SRC_DIR)/ -type d -printf "-I%p ")
 
 # Collect source files
 CPP_FILES := $(shell find $(SRC_DIR) -name '*.cpp')
