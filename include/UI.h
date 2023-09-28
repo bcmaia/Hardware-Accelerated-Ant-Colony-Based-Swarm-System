@@ -15,67 +15,67 @@ using namespace std;
 
 enum Actions
 {
-	DO_NOTHING,
-	ENVIRONMENT_INIT,
-	ADD_NEST,
-	MOUSE_ADD_NEST,
-	ADD_FOOD,
-	MOUSE_ADD_FOOD,
-	ADD_ANT,
-	MOUSE_ADD_ANT,
+    DO_NOTHING,
+    ENVIRONMENT_INIT,
+    ADD_NEST,
+    MOUSE_ADD_NEST,
+    ADD_FOOD,
+    MOUSE_ADD_FOOD,
+    ADD_ANT,
+    MOUSE_ADD_ANT,
 };
 
 enum StateOfSimulation
 {
-	RUNNING,
-	PAUSED,
-	RESET,
-	CLOSED
+    RUNNING,
+    PAUSED,
+    RESET,
+    CLOSED
 };
 
 class UI 
 {
-	private:
-		
+    private:
+        
 
-	public:
+    public:
 
-		StateOfSimulation stateSimulation;
-		Actions UIAction;
+        StateOfSimulation stateSimulation;
+        Actions UIAction;
 
-		int halfScreenSize;
+        int halfScreenSize;
 
-		bool turnOnGraphics;
-    	bool turnOnCameraMovement;
+        bool turnOnGraphics;
+        bool turnOnCameraMovement;
 
-    	int placePheromoneRate;
-    	int pheromoneEvaporationRate;
-    	int openGlRenderUpdateFrameRate;
+        int placePheromoneRate;
+        int pheromoneEvaporationRate;
+        int openGlRenderUpdateFrameRate;
 
-    	float nestPosX;
-    	float nestPosY;
-    	float nestSize;
-    	int antAmount;
+        float nestPosX;
+        float nestPosY;
+        float nestSize;
+        int antAmount;
 
-    	float foodPosX;
-    	float foodPosY;
-    	float foodSize;
-    	int foodAmount;
+        float foodPosX;
+        float foodPosY;
+        float foodSize;
+        int foodAmount;
 
-    	int nestID;
+        int nestID;
 
-		UI();
+        UI();
 
-		void init(GLFWwindow* window);
-		void pre_render();
-		void render();
-		void post_render();
-		void run();
-		void end();
+        void init(GLFWwindow* window);
+        void pre_render();
+        void render();
+        void post_render();
+        void run();
+        void end();
 
-		void simulationControls();
-		void experimentsTab();
-		void antsRealTimeInteractionsTab();
+        void simulationControls();
+        void experimentsTab();
+        void antsRealTimeInteractionsTab();
 
 };
 #endif

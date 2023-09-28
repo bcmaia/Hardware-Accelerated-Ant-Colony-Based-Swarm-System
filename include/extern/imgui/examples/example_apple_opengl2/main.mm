@@ -28,7 +28,7 @@
 
 #ifndef DEBUG
     GLint swapInterval = 1;
-    [[self openGLContext] setValues:&swapInterval forParameter:NSOpenGLCPSwapInterval];
+    [[self Simulator] setValues:&swapInterval forParameter:NSOpenGLCPSwapInterval];
     if (swapInterval == 0)
         NSLog(@"Error: Cannot set swap interval.");
 #endif
@@ -132,7 +132,7 @@
     ImGui::Render();
     ImDrawData* draw_data = ImGui::GetDrawData();
 
-    [[self openGLContext] makeCurrentContext];
+    [[self Simulator] makeCurrentContext];
     GLsizei width  = (GLsizei)(draw_data->DisplaySize.x * draw_data->FramebufferScale.x);
     GLsizei height = (GLsizei)(draw_data->DisplaySize.y * draw_data->FramebufferScale.y);
     glViewport(0, 0, width, height);
@@ -149,13 +149,13 @@
     }
 
     // Present
-    [[self openGLContext] flushBuffer];
+    [[self Simulator] flushBuffer];
 
     if (!animationTimer)
         animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.017 target:self selector:@selector(animationTimerFired:) userInfo:nil repeats:YES];
 }
 
--(void)reshape                              { [super reshape]; [[self openGLContext] update]; [self updateAndDrawDemoView]; }
+-(void)reshape                              { [super reshape]; [[self Simulator] update]; [self updateAndDrawDemoView]; }
 -(void)drawRect:(NSRect)bounds              { [self updateAndDrawDemoView]; }
 -(void)animationTimerFired:(NSTimer*)timer  { [self setNeedsDisplay:YES]; }
 -(void)dealloc                              { animationTimer = nil; }
@@ -243,7 +243,7 @@
 #endif // MAC_OS_X_VERSION_MAX_ALLOWED >= 1070
     [self.window setContentView:view];
 
-    if ([view openGLContext] == nil)
+    if ([view Simulator] == nil)
         NSLog(@"No OpenGL Context!");
 
     [view initialize];

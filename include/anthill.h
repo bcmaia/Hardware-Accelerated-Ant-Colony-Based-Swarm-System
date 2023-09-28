@@ -8,17 +8,17 @@ using namespace std;
 
 class Anthill 
 {
-	public:
-		int id;
+    public:
+        int id;
 
-		float posX;
-		float posY;
-		float size;
-		int antAmount;
+        float posX;
+        float posY;
+        float size;
+        int antAmount;
 
 
-		Anthill(AnthillParameters* anthillParameters);
-		bool antColision(float antPosx, float antPosY);
+        Anthill(AnthillParameters* anthillParameters);
+        bool antColision(float antPosx, float antPosY);
 
 
 };

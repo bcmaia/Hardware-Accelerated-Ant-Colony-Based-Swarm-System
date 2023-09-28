@@ -1,18 +1,18 @@
-#include <openglContext.h>
+#include <Simulator.h>
 #include <iostream>
 
 
 int main()
 {
     //=== INITIALIZATIONS ===//
-    OpenglContext openglContext;
-    openglContext.init();
+    simulator::Simulator Simulator;
+    Simulator.init();
     OpenglBuffersManager openglBuffersManager;
 
     srand(GLOBAL_SEED);
 
     //=== EXECUTION LOOP ===/
-    openglContext.run(&openglBuffersManager);
+    Simulator.run(&openglBuffersManager);
 
     //=== EXIT ===/
     return EXIT_SUCCESS;

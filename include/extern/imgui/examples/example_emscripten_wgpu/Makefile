@@ -64,25 +64,25 @@ LDFLAGS += $(EMS)
 ##---------------------------------------------------------------------
 
 %.o:%.cpp
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+    $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 %.o:$(IMGUI_DIR)/%.cpp
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+    $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 %.o:$(IMGUI_DIR)/backends/%.cpp
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+    $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 all: $(EXE)
-	@echo Build complete for $(EXE)
+    @echo Build complete for $(EXE)
 
 $(WEB_DIR):
-	mkdir $@
+    mkdir $@
 
 serve: all
-	python3 -m http.server -d $(WEB_DIR)
+    python3 -m http.server -d $(WEB_DIR)
 
 $(EXE): $(OBJS) $(WEB_DIR)
-	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
+    $(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
-	rm -f $(EXE) $(OBJS) $(WEB_DIR)/*.js $(WEB_DIR)/*.wasm $(WEB_DIR)/*.wasm.pre
+    rm -f $(EXE) $(OBJS) $(WEB_DIR)/*.js $(WEB_DIR)/*.wasm $(WEB_DIR)/*.wasm.pre

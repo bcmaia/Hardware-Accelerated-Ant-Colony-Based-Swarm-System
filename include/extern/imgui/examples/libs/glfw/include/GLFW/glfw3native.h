@@ -213,9 +213,9 @@ GLFWAPI id glfwGetCocoaWindow(GLFWwindow* window);
 #endif
 
 #if defined(GLFW_EXPOSE_NATIVE_NSGL)
-/*! @brief Returns the `NSOpenGLContext` of the specified window.
+/*! @brief Returns the `NSSimulator` of the specified window.
  *
- *  @return The `NSOpenGLContext` of the specified window, or `nil` if an
+ *  @return The `NSSimulator` of the specified window, or `nil` if an
  *  [error](@ref error_handling) occurred.
  *
  *  @thread_safety This function may be called from any thread.  Access is not

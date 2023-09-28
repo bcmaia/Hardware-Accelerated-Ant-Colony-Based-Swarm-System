@@ -21,7 +21,7 @@ void VBO::subBufferData(GLsizeiptr size, void* data)
 {
  	glBindBuffer(GL_ARRAY_BUFFER, ID);
    	glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 // Binds the VBO

@@ -9,23 +9,23 @@ Shader::Shader()
 string Shader::extractText(const char* filePath)
 {
 	string shaderCode;
-    ifstream shaderFile;
+	ifstream shaderFile;
 
 	shaderFile.exceptions (ifstream::failbit | ifstream::badbit);
 	try
 	{
-	    shaderFile.open(filePath);
+		shaderFile.open(filePath);
 
-	    stringstream shaderString;
+		stringstream shaderString;
 
-	    shaderString << shaderFile.rdbuf();
-	    
-	    shaderFile.close();
+		shaderString << shaderFile.rdbuf();
+		
+		shaderFile.close();
 
-	    shaderCode = shaderString.str();
+		shaderCode = shaderString.str();
 	}
 	catch (ifstream::failure& e)
-    {
+	{
 		cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << endl;
 	}
 	
@@ -40,11 +40,11 @@ GLuint Shader::loadShader(GLenum type, const char* filePath)
 	newShader = glCreateShader(type);
 
 	const char* constShaderCode = shaderCode.c_str();
-    glShaderSource(newShader, 1, &constShaderCode, NULL);
+	glShaderSource(newShader, 1, &constShaderCode, NULL);
 
-    glCompileShader(newShader);
+	glCompileShader(newShader);
 
-    checkErrors(newShader, "COMPILATION");
+	checkErrors(newShader, "COMPILATION");
 
 	return newShader;
 }
@@ -105,31 +105,31 @@ void Shader::dispose()
 
 void Shader::checkErrors(GLuint shaderObj, std::string type)
 {
-    GLint status;
-    GLchar infoLog[1024];
-    if(type == "PROGRAM")
-    {
-    	glGetProgramiv(shaderObj, GL_LINK_STATUS, &status);
-        if(!status)
-        {
-            glGetProgramInfoLog(shaderObj, 1024, NULL, infoLog);
-            std::cout << "PROGRAM LINK ERROR: " << "\n" << infoLog << "\n" << std::endl;
-        }
-    }
-    else
-    {
-        glGetShaderiv(shaderObj, GL_COMPILE_STATUS, &status);
-        if(!status)
-        {
-            glGetShaderInfoLog(shaderObj, 1024, NULL, infoLog);
-            std::cout << "SHADER COMPILATION ERROR: " << type << "\n" << infoLog << "\n" << std::endl;
-        }
-    }
+	GLint status;
+	GLchar infoLog[1024];
+	if(type == "PROGRAM")
+	{
+		glGetProgramiv(shaderObj, GL_LINK_STATUS, &status);
+		if(!status)
+		{
+			glGetProgramInfoLog(shaderObj, 1024, NULL, infoLog);
+			std::cout << "PROGRAM LINK ERROR: " << "\n" << infoLog << "\n" << std::endl;
+		}
+	}
+	else
+	{
+		glGetShaderiv(shaderObj, GL_COMPILE_STATUS, &status);
+		if(!status)
+		{
+			glGetShaderInfoLog(shaderObj, 1024, NULL, infoLog);
+			std::cout << "SHADER COMPILATION ERROR: " << type << "\n" << infoLog << "\n" << std::endl;
+		}
+	}
 }
 
 // SET SHADER ATTRIBUTES
 void Shader::setMat4(const std::string &name, const glm::mat4 &mat) const
 {
-    glUniformMatrix4fv(glGetUniformLocation(programID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+	glUniformMatrix4fv(glGetUniformLocation(programID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
 }
 

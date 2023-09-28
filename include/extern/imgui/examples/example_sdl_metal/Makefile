@@ -23,25 +23,25 @@ CXXFLAGS += -Wall -Wformat
 CFLAGS = $(CXXFLAGS)
 
 %.o:%.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+    $(CXX) $(CXXFLAGS) -c -o $@ $<
 
 %.o:$(IMGUI_DIR)/%.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+    $(CXX) $(CXXFLAGS) -c -o $@ $<
 
 %.o:$(IMGUI_DIR)/backends/%.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+    $(CXX) $(CXXFLAGS) -c -o $@ $<
 
 %.o:%.mm
-	$(CXX) $(CXXFLAGS) -ObjC++ -fobjc-weak -fobjc-arc -c -o $@ $<
+    $(CXX) $(CXXFLAGS) -ObjC++ -fobjc-weak -fobjc-arc -c -o $@ $<
 
 %.o:$(IMGUI_DIR)/backends/%.mm
-	$(CXX) $(CXXFLAGS) -ObjC++ -fobjc-weak -fobjc-arc -c -o $@ $<
+    $(CXX) $(CXXFLAGS) -ObjC++ -fobjc-weak -fobjc-arc -c -o $@ $<
 
 all: $(EXE)
-	@echo Build complete
+    @echo Build complete
 
 $(EXE): $(OBJS)
-	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
+    $(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
 
 clean:
-	rm -f $(EXE) $(OBJS)
+    rm -f $(EXE) $(OBJS)

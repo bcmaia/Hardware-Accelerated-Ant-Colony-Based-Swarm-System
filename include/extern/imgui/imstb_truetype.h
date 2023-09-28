@@ -4719,48 +4719,48 @@ STBTT_DEF unsigned char * stbtt_GetGlyphSDF(const stbtt_fontinfo *info, float sc
                         num = stbtt__solve_cubic(b, c, d, res);
                      }
                      dist2 = (x0-sx)*(x0-sx) + (y0-sy)*(y0-sy);
-                     if (dist2 < min_dist*min_dist)
-                        min_dist = (float) STBTT_sqrt(dist2);
+        			 if (dist2 < min_dist*min_dist)
+						min_dist = (float) STBTT_sqrt(dist2);
 
-                     if (num >= 1 && res[0] >= 0.0f && res[0] <= 1.0f) {
-                        t = res[0], it = 1.0f - t;
-                        px = it*it*x0 + 2*t*it*x1 + t*t*x2;
-                        py = it*it*y0 + 2*t*it*y1 + t*t*y2;
-                        dist2 = (px-sx)*(px-sx) + (py-sy)*(py-sy);
-                        if (dist2 < min_dist * min_dist)
-                           min_dist = (float) STBTT_sqrt(dist2);
-                     }
-                     if (num >= 2 && res[1] >= 0.0f && res[1] <= 1.0f) {
-                        t = res[1], it = 1.0f - t;
-                        px = it*it*x0 + 2*t*it*x1 + t*t*x2;
-                        py = it*it*y0 + 2*t*it*y1 + t*t*y2;
-                        dist2 = (px-sx)*(px-sx) + (py-sy)*(py-sy);
-                        if (dist2 < min_dist * min_dist)
-                           min_dist = (float) STBTT_sqrt(dist2);
-                     }
-                     if (num >= 3 && res[2] >= 0.0f && res[2] <= 1.0f) {
-                        t = res[2], it = 1.0f - t;
-                        px = it*it*x0 + 2*t*it*x1 + t*t*x2;
-                        py = it*it*y0 + 2*t*it*y1 + t*t*y2;
-                        dist2 = (px-sx)*(px-sx) + (py-sy)*(py-sy);
-                        if (dist2 < min_dist * min_dist)
-                           min_dist = (float) STBTT_sqrt(dist2);
-                     }
-                  }
-               }
-            }
-            if (winding == 0)
-               min_dist = -min_dist;  // if outside the shape, value is negative
-            val = onedge_value + pixel_dist_scale * min_dist;
-            if (val < 0)
-               val = 0;
-            else if (val > 255)
-               val = 255;
-            data[(y-iy0)*w+(x-ix0)] = (unsigned char) val;
-         }
-      }
-      STBTT_free(precompute, info->userdata);
-      STBTT_free(verts, info->userdata);
+					 if (num >= 1 && res[0] >= 0.0f && res[0] <= 1.0f) {
+						t = res[0], it = 1.0f - t;
+						px = it*it*x0 + 2*t*it*x1 + t*t*x2;
+						py = it*it*y0 + 2*t*it*y1 + t*t*y2;
+						dist2 = (px-sx)*(px-sx) + (py-sy)*(py-sy);
+						if (dist2 < min_dist * min_dist)
+						   min_dist = (float) STBTT_sqrt(dist2);
+					 }
+					 if (num >= 2 && res[1] >= 0.0f && res[1] <= 1.0f) {
+						t = res[1], it = 1.0f - t;
+						px = it*it*x0 + 2*t*it*x1 + t*t*x2;
+						py = it*it*y0 + 2*t*it*y1 + t*t*y2;
+						dist2 = (px-sx)*(px-sx) + (py-sy)*(py-sy);
+						if (dist2 < min_dist * min_dist)
+						   min_dist = (float) STBTT_sqrt(dist2);
+					 }
+					 if (num >= 3 && res[2] >= 0.0f && res[2] <= 1.0f) {
+						t = res[2], it = 1.0f - t;
+						px = it*it*x0 + 2*t*it*x1 + t*t*x2;
+						py = it*it*y0 + 2*t*it*y1 + t*t*y2;
+						dist2 = (px-sx)*(px-sx) + (py-sy)*(py-sy);
+						if (dist2 < min_dist * min_dist)
+						   min_dist = (float) STBTT_sqrt(dist2);
+					 }
+				  }
+			   }
+			}
+			if (winding == 0)
+			   min_dist = -min_dist;  // if outside the shape, value is negative
+			val = onedge_value + pixel_dist_scale * min_dist;
+			if (val < 0)
+			   val = 0;
+			else if (val > 255)
+			   val = 255;
+			data[(y-iy0)*w+(x-ix0)] = (unsigned char) val;
+		 }
+	  }
+	  STBTT_free(precompute, info->userdata);
+	  STBTT_free(verts, info->userdata);
    }
    return data;
 }
@@ -4787,35 +4787,35 @@ static stbtt_int32 stbtt__CompareUTF8toUTF16_bigendian_prefix(stbtt_uint8 *s1, s
 
    // convert utf16 to utf8 and compare the results while converting
    while (len2) {
-      stbtt_uint16 ch = s2[0]*256 + s2[1];
-      if (ch < 0x80) {
-         if (i >= len1) return -1;
-         if (s1[i++] != ch) return -1;
-      } else if (ch < 0x800) {
-         if (i+1 >= len1) return -1;
-         if (s1[i++] != 0xc0 + (ch >> 6)) return -1;
-         if (s1[i++] != 0x80 + (ch & 0x3f)) return -1;
-      } else if (ch >= 0xd800 && ch < 0xdc00) {
-         stbtt_uint32 c;
-         stbtt_uint16 ch2 = s2[2]*256 + s2[3];
-         if (i+3 >= len1) return -1;
-         c = ((ch - 0xd800) << 10) + (ch2 - 0xdc00) + 0x10000;
-         if (s1[i++] != 0xf0 + (c >> 18)) return -1;
-         if (s1[i++] != 0x80 + ((c >> 12) & 0x3f)) return -1;
-         if (s1[i++] != 0x80 + ((c >>  6) & 0x3f)) return -1;
-         if (s1[i++] != 0x80 + ((c      ) & 0x3f)) return -1;
-         s2 += 2; // plus another 2 below
-         len2 -= 2;
-      } else if (ch >= 0xdc00 && ch < 0xe000) {
-         return -1;
-      } else {
-         if (i+2 >= len1) return -1;
-         if (s1[i++] != 0xe0 + (ch >> 12)) return -1;
-         if (s1[i++] != 0x80 + ((ch >> 6) & 0x3f)) return -1;
-         if (s1[i++] != 0x80 + ((ch     ) & 0x3f)) return -1;
-      }
-      s2 += 2;
-      len2 -= 2;
+	  stbtt_uint16 ch = s2[0]*256 + s2[1];
+	  if (ch < 0x80) {
+		 if (i >= len1) return -1;
+		 if (s1[i++] != ch) return -1;
+	  } else if (ch < 0x800) {
+		 if (i+1 >= len1) return -1;
+		 if (s1[i++] != 0xc0 + (ch >> 6)) return -1;
+		 if (s1[i++] != 0x80 + (ch & 0x3f)) return -1;
+	  } else if (ch >= 0xd800 && ch < 0xdc00) {
+		 stbtt_uint32 c;
+		 stbtt_uint16 ch2 = s2[2]*256 + s2[3];
+		 if (i+3 >= len1) return -1;
+		 c = ((ch - 0xd800) << 10) + (ch2 - 0xdc00) + 0x10000;
+		 if (s1[i++] != 0xf0 + (c >> 18)) return -1;
+		 if (s1[i++] != 0x80 + ((c >> 12) & 0x3f)) return -1;
+		 if (s1[i++] != 0x80 + ((c >>  6) & 0x3f)) return -1;
+		 if (s1[i++] != 0x80 + ((c	  ) & 0x3f)) return -1;
+		 s2 += 2; // plus another 2 below
+		 len2 -= 2;
+	  } else if (ch >= 0xdc00 && ch < 0xe000) {
+		 return -1;
+	  } else {
+		 if (i+2 >= len1) return -1;
+		 if (s1[i++] != 0xe0 + (ch >> 12)) return -1;
+		 if (s1[i++] != 0x80 + ((ch >> 6) & 0x3f)) return -1;
+		 if (s1[i++] != 0x80 + ((ch	 ) & 0x3f)) return -1;
+	  }
+	  s2 += 2;
+	  len2 -= 2;
    }
    return i;
 }
@@ -4838,12 +4838,12 @@ STBTT_DEF const char *stbtt_GetFontNameString(const stbtt_fontinfo *font, int *l
    count = ttUSHORT(fc+nm+2);
    stringOffset = nm + ttUSHORT(fc+nm+4);
    for (i=0; i < count; ++i) {
-      stbtt_uint32 loc = nm + 6 + 12 * i;
-      if (platformID == ttUSHORT(fc+loc+0) && encodingID == ttUSHORT(fc+loc+2)
-          && languageID == ttUSHORT(fc+loc+4) && nameID == ttUSHORT(fc+loc+6)) {
-         *length = ttUSHORT(fc+loc+8);
-         return (const char *) (fc+stringOffset+ttUSHORT(fc+loc+10));
-      }
+	  stbtt_uint32 loc = nm + 6 + 12 * i;
+	  if (platformID == ttUSHORT(fc+loc+0) && encodingID == ttUSHORT(fc+loc+2)
+		  && languageID == ttUSHORT(fc+loc+4) && nameID == ttUSHORT(fc+loc+6)) {
+		 *length = ttUSHORT(fc+loc+8);
+		 return (const char *) (fc+stringOffset+ttUSHORT(fc+loc+10));
+	  }
    }
    return NULL;
 }
@@ -4855,42 +4855,42 @@ static int stbtt__matchpair(stbtt_uint8 *fc, stbtt_uint32 nm, stbtt_uint8 *name,
    stbtt_int32 stringOffset = nm + ttUSHORT(fc+nm+4);
 
    for (i=0; i < count; ++i) {
-      stbtt_uint32 loc = nm + 6 + 12 * i;
-      stbtt_int32 id = ttUSHORT(fc+loc+6);
-      if (id == target_id) {
-         // find the encoding
-         stbtt_int32 platform = ttUSHORT(fc+loc+0), encoding = ttUSHORT(fc+loc+2), language = ttUSHORT(fc+loc+4);
+	  stbtt_uint32 loc = nm + 6 + 12 * i;
+	  stbtt_int32 id = ttUSHORT(fc+loc+6);
+	  if (id == target_id) {
+		 // find the encoding
+		 stbtt_int32 platform = ttUSHORT(fc+loc+0), encoding = ttUSHORT(fc+loc+2), language = ttUSHORT(fc+loc+4);
 
-         // is this a Unicode encoding?
-         if (platform == 0 || (platform == 3 && encoding == 1) || (platform == 3 && encoding == 10)) {
-            stbtt_int32 slen = ttUSHORT(fc+loc+8);
-            stbtt_int32 off = ttUSHORT(fc+loc+10);
+		 // is this a Unicode encoding?
+		 if (platform == 0 || (platform == 3 && encoding == 1) || (platform == 3 && encoding == 10)) {
+			stbtt_int32 slen = ttUSHORT(fc+loc+8);
+			stbtt_int32 off = ttUSHORT(fc+loc+10);
 
-            // check if there's a prefix match
-            stbtt_int32 matchlen = stbtt__CompareUTF8toUTF16_bigendian_prefix(name, nlen, fc+stringOffset+off,slen);
-            if (matchlen >= 0) {
-               // check for target_id+1 immediately following, with same encoding & language
-               if (i+1 < count && ttUSHORT(fc+loc+12+6) == next_id && ttUSHORT(fc+loc+12) == platform && ttUSHORT(fc+loc+12+2) == encoding && ttUSHORT(fc+loc+12+4) == language) {
-                  slen = ttUSHORT(fc+loc+12+8);
-                  off = ttUSHORT(fc+loc+12+10);
-                  if (slen == 0) {
-                     if (matchlen == nlen)
-                        return 1;
-                  } else if (matchlen < nlen && name[matchlen] == ' ') {
-                     ++matchlen;
-                     if (stbtt_CompareUTF8toUTF16_bigendian_internal((char*) (name+matchlen), nlen-matchlen, (char*)(fc+stringOffset+off),slen))
-                        return 1;
-                  }
-               } else {
-                  // if nothing immediately following
-                  if (matchlen == nlen)
-                     return 1;
-               }
-            }
-         }
+			// check if there's a prefix match
+			stbtt_int32 matchlen = stbtt__CompareUTF8toUTF16_bigendian_prefix(name, nlen, fc+stringOffset+off,slen);
+			if (matchlen >= 0) {
+			   // check for target_id+1 immediately following, with same encoding & language
+			   if (i+1 < count && ttUSHORT(fc+loc+12+6) == next_id && ttUSHORT(fc+loc+12) == platform && ttUSHORT(fc+loc+12+2) == encoding && ttUSHORT(fc+loc+12+4) == language) {
+				  slen = ttUSHORT(fc+loc+12+8);
+				  off = ttUSHORT(fc+loc+12+10);
+				  if (slen == 0) {
+					 if (matchlen == nlen)
+						return 1;
+				  } else if (matchlen < nlen && name[matchlen] == ' ') {
+					 ++matchlen;
+					 if (stbtt_CompareUTF8toUTF16_bigendian_internal((char*) (name+matchlen), nlen-matchlen, (char*)(fc+stringOffset+off),slen))
+						return 1;
+				  }
+			   } else {
+				  // if nothing immediately following
+				  if (matchlen == nlen)
+					 return 1;
+			   }
+			}
+		 }
 
-         // @TODO handle other encodings
-      }
+		 // @TODO handle other encodings
+	  }
    }
    return 0;
 }
@@ -4903,22 +4903,22 @@ static int stbtt__matches(stbtt_uint8 *fc, stbtt_uint32 offset, stbtt_uint8 *nam
 
    // check italics/bold/underline flags in macStyle...
    if (flags) {
-      hd = stbtt__find_table(fc, offset, "head");
-      if ((ttUSHORT(fc+hd+44) & 7) != (flags & 7)) return 0;
+	  hd = stbtt__find_table(fc, offset, "head");
+	  if ((ttUSHORT(fc+hd+44) & 7) != (flags & 7)) return 0;
    }
 
    nm = stbtt__find_table(fc, offset, "name");
    if (!nm) return 0;
 
    if (flags) {
-      // if we checked the macStyle flags, then just check the family and ignore the subfamily
-      if (stbtt__matchpair(fc, nm, name, nlen, 16, -1))  return 1;
-      if (stbtt__matchpair(fc, nm, name, nlen,  1, -1))  return 1;
-      if (stbtt__matchpair(fc, nm, name, nlen,  3, -1))  return 1;
+	  // if we checked the macStyle flags, then just check the family and ignore the subfamily
+	  if (stbtt__matchpair(fc, nm, name, nlen, 16, -1))  return 1;
+	  if (stbtt__matchpair(fc, nm, name, nlen,  1, -1))  return 1;
+	  if (stbtt__matchpair(fc, nm, name, nlen,  3, -1))  return 1;
    } else {
-      if (stbtt__matchpair(fc, nm, name, nlen, 16, 17))  return 1;
-      if (stbtt__matchpair(fc, nm, name, nlen,  1,  2))  return 1;
-      if (stbtt__matchpair(fc, nm, name, nlen,  3, -1))  return 1;
+	  if (stbtt__matchpair(fc, nm, name, nlen, 16, 17))  return 1;
+	  if (stbtt__matchpair(fc, nm, name, nlen,  1,  2))  return 1;
+	  if (stbtt__matchpair(fc, nm, name, nlen,  3, -1))  return 1;
    }
 
    return 0;
@@ -4928,10 +4928,10 @@ static int stbtt_FindMatchingFont_internal(unsigned char *font_collection, char 
 {
    stbtt_int32 i;
    for (i=0;;++i) {
-      stbtt_int32 off = stbtt_GetFontOffsetForIndex(font_collection, i);
-      if (off < 0) return off;
-      if (stbtt__matches((stbtt_uint8 *) font_collection, off, (stbtt_uint8*) name_utf8, flags))
-         return off;
+	  stbtt_int32 off = stbtt_GetFontOffsetForIndex(font_collection, i);
+	  if (off < 0) return off;
+	  if (stbtt__matches((stbtt_uint8 *) font_collection, off, (stbtt_uint8*) name_utf8, flags))
+		 return off;
    }
 }
 
@@ -4941,8 +4941,8 @@ static int stbtt_FindMatchingFont_internal(unsigned char *font_collection, char 
 #endif
 
 STBTT_DEF int stbtt_BakeFontBitmap(const unsigned char *data, int offset,
-                                float pixel_height, unsigned char *pixels, int pw, int ph,
-                                int first_char, int num_chars, stbtt_bakedchar *chardata)
+								float pixel_height, unsigned char *pixels, int pw, int ph,
+								int first_char, int num_chars, stbtt_bakedchar *chardata)
 {
    return stbtt_BakeFontBitmap_internal((unsigned char *) data, offset, pixel_height, pixels, pw, ph, first_char, num_chars, chardata);
 }
@@ -4997,24 +4997,24 @@ STBTT_DEF int stbtt_CompareUTF8toUTF16_bigendian(const char *s1, int len1, const
 //   1.12 (2016-10-25) suppress warnings about casting away const with -Wcast-qual
 //   1.11 (2016-04-02) fix unused-variable warning
 //   1.10 (2016-04-02) allow user-defined fabs() replacement
-//                     fix memory leak if fontsize=0.0
-//                     fix warning from duplicate typedef
+//					 fix memory leak if fontsize=0.0
+//					 fix warning from duplicate typedef
 //   1.09 (2016-01-16) warning fix; avoid crash on outofmem; use alloc userdata for PackFontRanges
 //   1.08 (2015-09-13) document stbtt_Rasterize(); fixes for vertical & horizontal edges
 //   1.07 (2015-08-01) allow PackFontRanges to accept arrays of sparse codepoints;
-//                     allow PackFontRanges to pack and render in separate phases;
-//                     fix stbtt_GetFontOFfsetForIndex (never worked for non-0 input?);
-//                     fixed an assert() bug in the new rasterizer
-//                     replace assert() with STBTT_assert() in new rasterizer
+//					 allow PackFontRanges to pack and render in separate phases;
+//					 fix stbtt_GetFontOFfsetForIndex (never worked for non-0 input?);
+//					 fixed an assert() bug in the new rasterizer
+//					 replace assert() with STBTT_assert() in new rasterizer
 //   1.06 (2015-07-14) performance improvements (~35% faster on x86 and x64 on test machine)
-//                     also more precise AA rasterizer, except if shapes overlap
-//                     remove need for STBTT_sort
+//					 also more precise AA rasterizer, except if shapes overlap
+//					 remove need for STBTT_sort
 //   1.05 (2015-04-15) fix misplaced definitions for STBTT_STATIC
 //   1.04 (2015-04-15) typo in example
 //   1.03 (2015-04-12) STBTT_STATIC, fix memory leak in new packing, various fixes
 //   1.02 (2014-12-10) fix various warnings & compile issues w/ stb_rect_pack, C++
 //   1.01 (2014-12-08) fix subpixel position when oversampling to exactly match
-//                        non-oversampled; STBTT_POINT_SIZE for packed case only
+//						non-oversampled; STBTT_POINT_SIZE for packed case only
 //   1.00 (2014-12-06) add new PackBegin etc. API, w/ support for oversampling
 //   0.99 (2014-09-18) fix multiple bugs with subpixel rendering (ryg)
 //   0.9  (2014-08-07) support certain mac/iOS fonts without an MS platformID
@@ -5024,20 +5024,20 @@ STBTT_DEF int stbtt_CompareUTF8toUTF16_bigendian(const char *s1, int len1, const
 //   0.6c (2012-07-24) improve documentation
 //   0.6b (2012-07-20) fix a few more warnings
 //   0.6  (2012-07-17) fix warnings; added stbtt_ScaleForMappingEmToPixels,
-//                        stbtt_GetFontBoundingBox, stbtt_IsGlyphEmpty
+//						stbtt_GetFontBoundingBox, stbtt_IsGlyphEmpty
 //   0.5  (2011-12-09) bugfixes:
-//                        subpixel glyph renderer computed wrong bounding box
-//                        first vertex of shape can be off-curve (FreeSans)
+//						subpixel glyph renderer computed wrong bounding box
+//						first vertex of shape can be off-curve (FreeSans)
 //   0.4b (2011-12-03) fixed an error in the font baking example
 //   0.4  (2011-12-01) kerning, subpixel rendering (tor)
-//                    bugfixes for:
-//                        codepoint-to-glyph conversion using table fmt=12
-//                        codepoint-to-glyph conversion using table fmt=4
-//                        stbtt_GetBakedQuad with non-square texture (Zer)
-//                    updated Hello World! sample to use kerning and subpixel
-//                    fixed some warnings
+//					bugfixes for:
+//						codepoint-to-glyph conversion using table fmt=12
+//						codepoint-to-glyph conversion using table fmt=4
+//						stbtt_GetBakedQuad with non-square texture (Zer)
+//					updated Hello World! sample to use kerning and subpixel
+//					fixed some warnings
 //   0.3  (2009-06-24) cmap fmt=12, compound shapes (MM)
-//                    userdata, malloc-from-userdata, non-zero fill (stb)
+//					userdata, malloc-from-userdata, non-zero fill (stb)
 //   0.2  (2009-03-11) Fix unsigned/signed char warnings
 //   0.1  (2009-03-09) First public release
 //

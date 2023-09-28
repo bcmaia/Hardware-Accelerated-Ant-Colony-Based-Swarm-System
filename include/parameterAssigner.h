@@ -19,39 +19,39 @@ using namespace std;
 
 enum PheromoneType
 {
-	RED,
-	GREEN,
-	BLUE
+    RED,
+    GREEN,
+    BLUE
 };
 
 enum AntStates
 {
-	EXPLORER,
-	BACKHOME,
-	CARRIER,
-	NESTCARRIER,
-	FOLLOWGREEN
+    EXPLORER,
+    BACKHOME,
+    CARRIER,
+    NESTCARRIER,
+    FOLLOWGREEN
 };
 
 enum SensorType
 {
-	PHEROMONE,
-	NEST,
-	FOOD,
-	OBSTACLE,
-	ANT
+    PHEROMONE,
+    NEST,
+    FOOD,
+    OBSTACLE,
+    ANT
 };
 
 typedef struct
 {
-	int placePheromoneRate;
-   	int pheromoneEvaporationRate;
+    int placePheromoneRate;
+       int pheromoneEvaporationRate;
 }EnvironmentParameters;
 
 typedef struct 
 {
-	int id;
-	float posX;
+    int id;
+    float posX;
     float posY;
     float size;
     int antAmount;
@@ -60,69 +60,69 @@ typedef struct
 
 typedef struct
 {
-	int id;
-	float posX;
-	float posY;
-	float size;
-	int foodAmount;
+    int id;
+    float posX;
+    float posY;
+    float size;
+    int foodAmount;
 }FoodSourceParameters;
 
 typedef struct
 {
-	float xCenterAntDistance;
-	float yCenterAntDistance;
-	int positionAngle;
-	int sensorPixelRadius;
+    float xCenterAntDistance;
+    float yCenterAntDistance;
+    int positionAngle;
+    int sensorPixelRadius;
 
-	SensorType sensorType;
+    SensorType sensorType;
 }AntSensorParameters;
 
 typedef struct
 {
-	int nestID;
-	float size;
-	float velocity; 
+    int nestID;
+    float size;
+    float velocity; 
 
-	AntStates state;
-	int pheromoneType;
-	int placePheromoneIntensity;
+    AntStates state;
+    int pheromoneType;
+    int placePheromoneIntensity;
 
-	int lifeTime;
-	int viewFrequency;
+    int lifeTime;
+    int viewFrequency;
 
-	vector<AntSensorParameters*> antSensorParametersvec;
+    vector<AntSensorParameters*> antSensorParametersvec;
 
-	AntSensorParameters* antSensorParameters;
-	AntSensorParameters* antSensorParameters2;
+    AntSensorParameters* antSensorParameters;
+    AntSensorParameters* antSensorParameters2;
 
 }AntParameters;
 
 class ParameterAssigner 
 {
-	public:
-		EnvironmentParameters environmentParameters;
-		vector <AnthillParameters *> anthillParameters;
-		vector <FoodSourceParameters *> foodParameters;
-		vector <AntParameters *> antParameters;
-		
+    public:
+        EnvironmentParameters environmentParameters;
+        vector <AnthillParameters *> anthillParameters;
+        vector <FoodSourceParameters *> foodParameters;
+        vector <AntParameters *> antParameters;
+        
 
-	public:
-		ParameterAssigner(const char* filePath);
+    public:
+        ParameterAssigner(const char* filePath);
 
-		EnvironmentParameters setEnvironment();
-		EnvironmentParameters getEnvironment();
+        EnvironmentParameters setEnvironment();
+        EnvironmentParameters getEnvironment();
 
-		AnthillParameters setAnthill();
-		AnthillParameters getAnthill(int id);
+        AnthillParameters setAnthill();
+        AnthillParameters getAnthill(int id);
 
-		FoodSourceParameters setFood();
-		FoodSourceParameters getFood(int id);
+        FoodSourceParameters setFood();
+        FoodSourceParameters getFood(int id);
 
-		AntParameters setAnt();
-		AntParameters getAnt(int id);
+        AntParameters setAnt();
+        AntParameters getAnt(int id);
 
-		AntSensorParameters setAntSensor();
-		AntSensorParameters getAntSensor(int id);
+        AntSensorParameters setAntSensor();
+        AntSensorParameters getAntSensor(int id);
 
 
 

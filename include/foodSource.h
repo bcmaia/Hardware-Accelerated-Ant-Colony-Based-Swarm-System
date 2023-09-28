@@ -5,17 +5,17 @@
 #include <parameterAssigner.h>
 
 using namespace std;
-	
+    
 class FoodSource 
 {
-	public:
-		int id;
-		int foodAmount;
-		float posX, posY;
-		float size;
+    public:
+        int id;
+        int foodAmount;
+        float posX, posY;
+        float size;
 
-		FoodSource(FoodSourceParameters* foodParameters);
+        FoodSource(FoodSourceParameters* foodParameters);
 
-		bool antColision(float antPosx, float antPosY);
+        bool antColision(float antPosx, float antPosY);
 };
 #endif

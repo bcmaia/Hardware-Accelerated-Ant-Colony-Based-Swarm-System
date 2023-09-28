@@ -16,39 +16,39 @@ using namespace std;
 
 class Ant 
 {
-	public:
-		// Ant state
-		int id;
+    public:
+        // Ant state
+        int id;
 
-		int nestID;
-		float posX;
-		float posY;
-		float size;
-		float theta;
-		float velocity; 
+        int nestID;
+        float posX;
+        float posY;
+        float size;
+        float theta;
+        float velocity; 
 
-		AntStates state;
-		int pheromoneType;
-		int placePheromoneIntensity;
+        AntStates state;
+        int pheromoneType;
+        int placePheromoneIntensity;
 
-		int lifeTime;
-		int viewFrequency;
+        int lifeTime;
+        int viewFrequency;
 
-		AntSensor* pheromoneSensorR;
-		AntSensor* pheromoneSensorL;
+        AntSensor* pheromoneSensorR;
+        AntSensor* pheromoneSensorL;
 
-		bool foundNest;
-		bool foundFood;
-		bool carryingFood;
+        bool foundNest;
+        bool foundFood;
+        bool carryingFood;
 
-	public:
-		Ant(int id, float posX, float posY, AntParameters* antParameters);
+    public:
+        Ant(int id, float posX, float posY, AntParameters* antParameters);
 
-		void environmentAnalysis(int viewFrequency, uint8_t* pheromoneMatrix, vector<Anthill*> antColonies, vector<FoodSource*> foodSources);
-		bool nestColision(vector<Anthill*> antColonies);
-		bool foodColision(vector<FoodSource*> foodSources);
-		void changeState(AntStates newState);
-		void makeDecision(vector<Anthill*> antColonies, vector<FoodSource*> foodSources,  int lR, int lG, int lB, int rR, int rG, int rB);
-		void move(int l);
+        void environmentAnalysis(int viewFrequency, uint8_t* pheromoneMatrix, vector<Anthill*> antColonies, vector<FoodSource*> foodSources);
+        bool nestColision(vector<Anthill*> antColonies);
+        bool foodColision(vector<FoodSource*> foodSources);
+        void changeState(AntStates newState);
+        void makeDecision(vector<Anthill*> antColonies, vector<FoodSource*> foodSources,  int lR, int lG, int lB, int rR, int rG, int rB);
+        void move(int l);
 };
 #endif

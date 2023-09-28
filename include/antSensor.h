@@ -10,23 +10,23 @@ using namespace std;
 
 class AntSensor 
 {
-	public:
-		int id;
+    public:
+        int id;
 
-		float posX;
-		float posY;
-		float xCenterAntDistance;
-		float yCenterAntDistance;
-		float positionAngle;
-		int sensorPixelRadius;
+        float posX;
+        float posY;
+        float xCenterAntDistance;
+        float yCenterAntDistance;
+        float positionAngle;
+        int sensorPixelRadius;
 
-		int indexSensorX;
-		int indexSensorY;
+        int indexSensorX;
+        int indexSensorY;
 
-		SensorType sensorType;
+        SensorType sensorType;
 
-		AntSensor(int id, AntSensorParameters* antSensorParameters);
-		int detectPheromone(uint8_t* pheromoneMatrix, PheromoneType pheromoneType);
-		void move(float antPosX, float antPosy, float theta);
+        AntSensor(int id, AntSensorParameters* antSensorParameters);
+        int detectPheromone(uint8_t* pheromoneMatrix, PheromoneType pheromoneType);
+        void move(float antPosX, float antPosy, float theta);
 };
 #endif
