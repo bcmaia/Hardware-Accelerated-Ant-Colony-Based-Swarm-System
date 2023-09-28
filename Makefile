@@ -64,7 +64,7 @@
 PROGRAM_NAME := myapp
 CUDAC := nvcc
 CC := g++
-STD_MODE := release
+STD_MODE := debug
 
 CUDACFLAGS := -lGL -lglfw -lX11 -lpthread -lXrandr -ldl -lm -pg
 # CCFLAGS := -Wall -Wextra
@@ -96,6 +96,11 @@ RELEASE_CCFLAGS := -O3 -DNDEBUG -DRELEASE # NOTE: TEMPORARY
 
 DEBUG_CUDACFLAGS := -O0 -g -DDEBUG
 RELEASE_CUDACFLAGS := -O3 -DNDEBUG -DRELEASE 
+
+
+ifneq ($(mode),)
+	MODE := $(mode)
+endif
 
 ifneq ($(wildcard bundle-force-release.txt),)
 	MODE := release

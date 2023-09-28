@@ -1,8 +1,8 @@
 target/debug/obj/opengl/render/VAO.o: src/opengl/render/VAO.cpp \
- include/VAO.h include/VBO.h dep/glad/glad.h dep/KHR/khrplatform.h \
- include/EBO.h
-include/VAO.h:
-include/VBO.h:
+ include/opengl/render/VAO.h include/opengl/render/VBO.h dep/glad/glad.h \
+ dep/KHR/khrplatform.h include/opengl/render/EBO.h
+include/opengl/render/VAO.h:
+include/opengl/render/VBO.h:
 dep/glad/glad.h:
 dep/KHR/khrplatform.h:
-include/EBO.h:
+include/opengl/render/EBO.h:

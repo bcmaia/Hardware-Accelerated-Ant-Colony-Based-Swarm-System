@@ -1,6 +1,6 @@
 target/release/obj/swarmEnvironment/antSensor.o: \
- src/swarmEnvironment/antSensor.cpp include/antSensor.h \
- include/parameterAssigner.h dep/rapidjson/document.h \
+ src/swarmEnvironment/antSensor.cpp include/swarmEnvironment/antSensor.h \
+ include/swarmEnvironment/parameterAssigner.h dep/rapidjson/document.h \
  dep/rapidjson/reader.h dep/rapidjson/allocators.h \
  dep/rapidjson/rapidjson.h dep/rapidjson/internal/meta.h \
  dep/rapidjson/internal/../rapidjson.h dep/rapidjson/stream.h \
@@ -17,8 +17,8 @@ target/release/obj/swarmEnvironment/antSensor.o: \
  dep/rapidjson/internal/itoa.h dep/rapidjson/internal/itoa.h \
  dep/rapidjson/stringbuffer.h dep/rapidjson/stringbuffer.h \
  include/constants.h include/sinCosLookup.h
-include/antSensor.h:
-include/parameterAssigner.h:
+include/swarmEnvironment/antSensor.h:
+include/swarmEnvironment/parameterAssigner.h:
 dep/rapidjson/document.h:
 dep/rapidjson/reader.h:
 dep/rapidjson/allocators.h:

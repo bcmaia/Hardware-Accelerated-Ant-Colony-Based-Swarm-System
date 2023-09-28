@@ -1,6 +1,6 @@
 target/debug/obj/swarmEnvironment/anthill.o: \
- src/swarmEnvironment/anthill.cpp include/anthill.h \
- include/parameterAssigner.h dep/rapidjson/document.h \
+ src/swarmEnvironment/anthill.cpp include/swarmEnvironment/anthill.h \
+ include/swarmEnvironment/parameterAssigner.h dep/rapidjson/document.h \
  dep/rapidjson/reader.h dep/rapidjson/allocators.h \
  dep/rapidjson/rapidjson.h dep/rapidjson/internal/meta.h \
  dep/rapidjson/internal/../rapidjson.h dep/rapidjson/stream.h \
@@ -16,9 +16,9 @@ target/debug/obj/swarmEnvironment/anthill.o: \
  dep/rapidjson/writer.h dep/rapidjson/internal/dtoa.h \
  dep/rapidjson/internal/itoa.h dep/rapidjson/internal/itoa.h \
  dep/rapidjson/stringbuffer.h dep/rapidjson/stringbuffer.h \
- include/constants.h
-include/anthill.h:
-include/parameterAssigner.h:
+ include/opengl/utils/constants.h
+include/swarmEnvironment/anthill.h:
+include/swarmEnvironment/parameterAssigner.h:
 dep/rapidjson/document.h:
 dep/rapidjson/reader.h:
 dep/rapidjson/allocators.h:
@@ -50,4 +50,4 @@ dep/rapidjson/internal/itoa.h:
 dep/rapidjson/internal/itoa.h:
 dep/rapidjson/stringbuffer.h:
 dep/rapidjson/stringbuffer.h:
-include/constants.h:
+include/opengl/utils/constants.h:
