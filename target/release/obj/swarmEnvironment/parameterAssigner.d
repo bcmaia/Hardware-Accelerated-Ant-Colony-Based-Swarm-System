@@ -16,7 +16,7 @@ target/release/obj/swarmEnvironment/parameterAssigner.o: \
  dep/rapidjson/writer.h dep/rapidjson/internal/dtoa.h \
  dep/rapidjson/internal/itoa.h dep/rapidjson/internal/itoa.h \
  dep/rapidjson/stringbuffer.h dep/rapidjson/stringbuffer.h \
- include/constants.h
+ include/opengl/utils/constants.h
 include/swarmEnvironment/parameterAssigner.h:
 dep/rapidjson/document.h:
 dep/rapidjson/reader.h:
@@ -49,4 +49,4 @@ dep/rapidjson/internal/itoa.h:
 dep/rapidjson/internal/itoa.h:
 dep/rapidjson/stringbuffer.h:
 dep/rapidjson/stringbuffer.h:
-include/constants.h:
+include/opengl/utils/constants.h:

@@ -1,5 +1,4 @@
-#ifndef ANT_H
-#define ANT_H
+#pragma once
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -51,4 +50,3 @@ class Ant
         void makeDecision(vector<Anthill*> antColonies, vector<FoodSource*> foodSources,  int lR, int lG, int lB, int rR, int rG, int rB);
         void move(int l);
 };
-#endif

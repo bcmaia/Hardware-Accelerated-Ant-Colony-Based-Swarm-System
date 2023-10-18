@@ -1,6 +1,6 @@
 target/release/obj/swarmEnvironment/ant.o: src/swarmEnvironment/ant.cpp \
- include/swarmEnvironment/ant.h include/sinCosLookup.h \
- include/swarmEnvironment/foodSource.h include/constants.h \
+ include/swarmEnvironment/ant.h include/utils/sinCosLookup.h \
+ include/swarmEnvironment/foodSource.h include/opengl/utils/constants.h \
  include/swarmEnvironment/parameterAssigner.h dep/rapidjson/document.h \
  dep/rapidjson/reader.h dep/rapidjson/allocators.h \
  dep/rapidjson/rapidjson.h dep/rapidjson/internal/meta.h \
@@ -19,9 +19,9 @@ target/release/obj/swarmEnvironment/ant.o: src/swarmEnvironment/ant.cpp \
  dep/rapidjson/stringbuffer.h dep/rapidjson/stringbuffer.h \
  include/swarmEnvironment/anthill.h include/swarmEnvironment/antSensor.h
 include/swarmEnvironment/ant.h:
-include/sinCosLookup.h:
+include/utils/sinCosLookup.h:
 include/swarmEnvironment/foodSource.h:
-include/constants.h:
+include/opengl/utils/constants.h:
 include/swarmEnvironment/parameterAssigner.h:
 dep/rapidjson/document.h:
 dep/rapidjson/reader.h:

@@ -1,5 +1,4 @@
-#ifndef SENSOR_H
-#define SENSOR_H
+#pragma once 
 
 #include <parameterAssigner.h>
 #include <sinCosLookup.h>
@@ -29,4 +28,3 @@ class AntSensor
         int detectPheromone(uint8_t* pheromoneMatrix, PheromoneType pheromoneType);
         void move(float antPosX, float antPosy, float theta);
 };
-#endif

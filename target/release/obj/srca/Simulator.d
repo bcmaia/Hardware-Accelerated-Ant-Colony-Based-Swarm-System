@@ -1,17 +1,19 @@
-target/debug/obj/opengl/window/Simulator.o: \
- src/opengl/window/Simulator.cpp include/Simulator.h \
- include/swarmEnvironment/environment.h include/openglBuffersManager.h \
+target/release/obj/srca/Simulator.o: srca/Simulator.cpp \
+ include/Simulator.h include/swarmEnvironment/environment.h \
+ include/opengl/render/bufferManagers/openglBuffersManager.h \
  include/opengl/render/shader.h dep/../dep/glad/glad.h \
- dep/KHR/khrplatform.h include/opengl/render/VAO.h \
- include/opengl/render/VBO.h dep/glad/glad.h include/opengl/render/EBO.h \
- include/UI.h include/constants.h src/imgui/imgui.h src/imgui/imconfig.h \
- src/imgui/backends/imgui_impl_glfw.h \
- src/imgui/backends/imgui_impl_opengl3.h include/camera.h \
- include/swarmEnvironment/ant.h include/sinCosLookup.h \
+ dep/KHR/khrplatform.h dep/rapidjson/msinttypes/stdint.h \
+ include/opengl/render/VAO.h include/opengl/render/VBO.h dep/glad/glad.h \
+ include/opengl/render/EBO.h include/opengl/window/UI.h \
+ include/opengl/utils/constants.h srca/imgui/imgui.h \
+ srca/imgui/imconfig.h srca/imgui/backends/imgui_impl_glfw.h \
+ srca/imgui/backends/imgui_impl_opengl3.h include/opengl/window/camera.h \
+ include/swarmEnvironment/ant.h include/utils/sinCosLookup.h \
  include/swarmEnvironment/foodSource.h \
  include/swarmEnvironment/parameterAssigner.h dep/rapidjson/document.h \
  dep/rapidjson/reader.h dep/rapidjson/allocators.h \
- dep/rapidjson/rapidjson.h dep/rapidjson/internal/meta.h \
+ dep/rapidjson/rapidjson.h dep/rapidjson/msinttypes/inttypes.h \
+ dep/rapidjson/msinttypes/stdint.h dep/rapidjson/internal/meta.h \
  dep/rapidjson/internal/../rapidjson.h dep/rapidjson/stream.h \
  dep/rapidjson/encodings.h dep/rapidjson/encodedstream.h \
  dep/rapidjson/memorystream.h dep/rapidjson/internal/clzll.h \
@@ -28,29 +30,32 @@ target/debug/obj/opengl/window/Simulator.o: \
  include/swarmEnvironment/anthill.h include/swarmEnvironment/antSensor.h
 include/Simulator.h:
 include/swarmEnvironment/environment.h:
-include/openglBuffersManager.h:
+include/opengl/render/bufferManagers/openglBuffersManager.h:
 include/opengl/render/shader.h:
 dep/../dep/glad/glad.h:
 dep/KHR/khrplatform.h:
+dep/rapidjson/msinttypes/stdint.h:
 include/opengl/render/VAO.h:
 include/opengl/render/VBO.h:
 dep/glad/glad.h:
 include/opengl/render/EBO.h:
-include/UI.h:
-include/constants.h:
-src/imgui/imgui.h:
-src/imgui/imconfig.h:
-src/imgui/backends/imgui_impl_glfw.h:
-src/imgui/backends/imgui_impl_opengl3.h:
-include/camera.h:
+include/opengl/window/UI.h:
+include/opengl/utils/constants.h:
+srca/imgui/imgui.h:
+srca/imgui/imconfig.h:
+srca/imgui/backends/imgui_impl_glfw.h:
+srca/imgui/backends/imgui_impl_opengl3.h:
+include/opengl/window/camera.h:
 include/swarmEnvironment/ant.h:
-include/sinCosLookup.h:
+include/utils/sinCosLookup.h:
 include/swarmEnvironment/foodSource.h:
 include/swarmEnvironment/parameterAssigner.h:
 dep/rapidjson/document.h:
 dep/rapidjson/reader.h:
 dep/rapidjson/allocators.h:
 dep/rapidjson/rapidjson.h:
+dep/rapidjson/msinttypes/inttypes.h:
+dep/rapidjson/msinttypes/stdint.h:
 dep/rapidjson/internal/meta.h:
 dep/rapidjson/internal/../rapidjson.h:
 dep/rapidjson/stream.h:

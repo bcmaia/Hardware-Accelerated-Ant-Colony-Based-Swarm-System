@@ -1,12 +1,14 @@
 target/release/obj/main.o: src/main.cpp include/Simulator.h \
- include/swarmEnvironment/environment.h include/openglBuffersManager.h \
+ include/swarmEnvironment/environment.h \
+ include/opengl/render/bufferManagers/openglBuffersManager.h \
  include/opengl/render/shader.h dep/../dep/glad/glad.h \
  dep/KHR/khrplatform.h include/opengl/render/VAO.h \
  include/opengl/render/VBO.h dep/glad/glad.h include/opengl/render/EBO.h \
- include/UI.h include/constants.h src/imgui/imgui.h src/imgui/imconfig.h \
+ include/opengl/window/UI.h include/opengl/utils/constants.h \
+ src/imgui/imgui.h src/imgui/imconfig.h \
  src/imgui/backends/imgui_impl_glfw.h \
- src/imgui/backends/imgui_impl_opengl3.h include/camera.h \
- include/swarmEnvironment/ant.h include/sinCosLookup.h \
+ src/imgui/backends/imgui_impl_opengl3.h include/opengl/window/camera.h \
+ include/swarmEnvironment/ant.h include/utils/sinCosLookup.h \
  include/swarmEnvironment/foodSource.h \
  include/swarmEnvironment/parameterAssigner.h dep/rapidjson/document.h \
  dep/rapidjson/reader.h dep/rapidjson/allocators.h \
@@ -27,7 +29,7 @@ target/release/obj/main.o: src/main.cpp include/Simulator.h \
  include/swarmEnvironment/anthill.h include/swarmEnvironment/antSensor.h
 include/Simulator.h:
 include/swarmEnvironment/environment.h:
-include/openglBuffersManager.h:
+include/opengl/render/bufferManagers/openglBuffersManager.h:
 include/opengl/render/shader.h:
 dep/../dep/glad/glad.h:
 dep/KHR/khrplatform.h:
@@ -35,15 +37,15 @@ include/opengl/render/VAO.h:
 include/opengl/render/VBO.h:
 dep/glad/glad.h:
 include/opengl/render/EBO.h:
-include/UI.h:
-include/constants.h:
+include/opengl/window/UI.h:
+include/opengl/utils/constants.h:
 src/imgui/imgui.h:
 src/imgui/imconfig.h:
 src/imgui/backends/imgui_impl_glfw.h:
 src/imgui/backends/imgui_impl_opengl3.h:
-include/camera.h:
+include/opengl/window/camera.h:
 include/swarmEnvironment/ant.h:
-include/sinCosLookup.h:
+include/utils/sinCosLookup.h:
 include/swarmEnvironment/foodSource.h:
 include/swarmEnvironment/parameterAssigner.h:
 dep/rapidjson/document.h:
