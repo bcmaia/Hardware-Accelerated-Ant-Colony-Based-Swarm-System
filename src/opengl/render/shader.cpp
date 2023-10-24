@@ -1,135 +1,123 @@
-#include "shader.h"
+#include "opengl/render/shader.h"
 
-using namespace std;
 
-Shader::Shader()
-{
-}
+namespace opengl {
+    namespace render {
 
-string Shader::extractText(const char* filePath)
-{
-	string shaderCode;
-	ifstream shaderFile;
+        Shader::Shader() {}
 
-	shaderFile.exceptions (ifstream::failbit | ifstream::badbit);
-	try
-	{
-		shaderFile.open(filePath);
+        std::string Shader::extractText(const char *filePath) {
+            std::string shaderCode;
+            std::ifstream shaderFile;
 
-		stringstream shaderString;
+            shaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+            try {
+                shaderFile.open(filePath);
 
-		shaderString << shaderFile.rdbuf();
-		
-		shaderFile.close();
+                std::stringstream shaderString;
 
-		shaderCode = shaderString.str();
-	}
-	catch (ifstream::failure& e)
-	{
-		cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << endl;
-	}
-	
-	return shaderCode;	
-}
+                shaderString << shaderFile.rdbuf();
 
-GLuint Shader::loadShader(GLenum type, const char* filePath)
-{	
-	string shaderCode = extractText(filePath);
+                shaderFile.close();
 
-	GLuint newShader;
-	newShader = glCreateShader(type);
+                shaderCode = shaderString.str();
+            } catch (std::ifstream::failure &e) {
+                std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+            }
 
-	const char* constShaderCode = shaderCode.c_str();
-	glShaderSource(newShader, 1, &constShaderCode, NULL);
+            return shaderCode;
+        }
 
-	glCompileShader(newShader);
+        GLuint Shader::loadShader(GLenum type, const char *filePath) {
+            std::string shaderCode = extractText(filePath);
 
-	checkErrors(newShader, "COMPILATION");
+            GLuint newShader;
+            newShader = glCreateShader(type);
 
-	return newShader;
-}
+            const char *constShaderCode = shaderCode.c_str();
+            glShaderSource(newShader, 1, &constShaderCode, NULL);
 
-void Shader::createProgramLinkShaders(const char* vertexPath, const char* fragmentPath, const char* geometryPath, const char* pixelPath)
-{
-	programID = glCreateProgram();
+            glCompileShader(newShader);
 
-	if(vertexPath != NULL)
-	{
-		vertexShader = loadShader(GL_VERTEX_SHADER, vertexPath);
-		glAttachShader(programID, vertexShader);
-	}
-	if(fragmentPath != NULL)
-	{
-		fragmentShader = loadShader(GL_FRAGMENT_SHADER, fragmentPath);
-		glAttachShader(programID, fragmentShader);
-	}
-	if(geometryPath != NULL)
-	{
-		geometryShader = loadShader(GL_GEOMETRY_SHADER, geometryPath);
-		glAttachShader(programID, geometryShader);
-	}
+            checkErrors(newShader, "COMPILATION");
 
-	glLinkProgram(programID);
+            return newShader;
+        }
 
-	checkErrors(programID, "PROGRAM");
+        void Shader::createProgramLinkShaders(
+            const char *vertexPath, const char *fragmentPath,
+            const char *geometryPath, const char *pixelPath
+        ) {
+            programID = glCreateProgram();
 
-	glDetachShader(programID, vertexShader);
-	glDetachShader(programID, fragmentShader);
-	glDetachShader(programID, geometryShader);
+            if (vertexPath != NULL) {
+                vertexShader = loadShader(GL_VERTEX_SHADER, vertexPath);
+                glAttachShader(programID, vertexShader);
+            }
+            if (fragmentPath != NULL) {
+                fragmentShader = loadShader(GL_FRAGMENT_SHADER, fragmentPath);
+                glAttachShader(programID, fragmentShader);
+            }
+            if (geometryPath != NULL) {
+                geometryShader = loadShader(GL_GEOMETRY_SHADER, geometryPath);
+                glAttachShader(programID, geometryShader);
+            }
 
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
-	glDeleteShader(geometryShader);
-}
+            glLinkProgram(programID);
 
-void Shader::bind() const
-{
-	glUseProgram(programID);
-}
+            checkErrors(programID, "PROGRAM");
 
-void Shader::unBind() const
-{
-	glUseProgram(0);
-}
+            glDetachShader(programID, vertexShader);
+            glDetachShader(programID, fragmentShader);
+            glDetachShader(programID, geometryShader);
 
-GLuint Shader::getProgramID() const
-{ 
-	return programID; 
-}
+            glDeleteShader(vertexShader);
+            glDeleteShader(fragmentShader);
+            glDeleteShader(geometryShader);
+        }
 
-void Shader::dispose()
-{
-	glDeleteProgram(programID);
-	programID = -1;
-}
+        void Shader::bind() const { glUseProgram(programID); }
 
-void Shader::checkErrors(GLuint shaderObj, std::string type)
-{
-	GLint status;
-	GLchar infoLog[1024];
-	if(type == "PROGRAM")
-	{
-		glGetProgramiv(shaderObj, GL_LINK_STATUS, &status);
-		if(!status)
-		{
-			glGetProgramInfoLog(shaderObj, 1024, NULL, infoLog);
-			std::cout << "PROGRAM LINK ERROR: " << "\n" << infoLog << "\n" << std::endl;
-		}
-	}
-	else
-	{
-		glGetShaderiv(shaderObj, GL_COMPILE_STATUS, &status);
-		if(!status)
-		{
-			glGetShaderInfoLog(shaderObj, 1024, NULL, infoLog);
-			std::cout << "SHADER COMPILATION ERROR: " << type << "\n" << infoLog << "\n" << std::endl;
-		}
-	}
-}
+        void Shader::unBind() const { glUseProgram(0); }
 
-// SET SHADER ATTRIBUTES
-void Shader::setMat4(const std::string &name, const glm::mat4 &mat) const
-{
-	glUniformMatrix4fv(glGetUniformLocation(programID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
-}
+        GLuint Shader::getProgramID() const { return programID; }
 
+        void Shader::dispose() {
+            glDeleteProgram(programID);
+            programID = -1;
+        }
+
+        void Shader::checkErrors(GLuint shaderObj, std::string type) {
+            GLint status;
+            GLchar infoLog[1024];
+            if (type == "PROGRAM") {
+                glGetProgramiv(shaderObj, GL_LINK_STATUS, &status);
+                if (!status) {
+                    glGetProgramInfoLog(shaderObj, 1024, NULL, infoLog);
+                    std::cout << "PROGRAM LINK ERROR: "
+                              << "\n"
+                              << infoLog << "\n"
+                              << std::endl;
+                }
+            } else {
+                glGetShaderiv(shaderObj, GL_COMPILE_STATUS, &status);
+                if (!status) {
+                    glGetShaderInfoLog(shaderObj, 1024, NULL, infoLog);
+                    std::cout << "SHADER COMPILATION ERROR: " << type << "\n"
+                              << infoLog << "\n"
+                              << std::endl;
+                }
+            }
+        }
+
+        // SET SHADER ATTRIBUTES
+        void
+        Shader::setMat4(const std::string &name, const glm::mat4 &mat) const {
+            glUniformMatrix4fv(
+                glGetUniformLocation(programID, name.c_str()), 1, GL_FALSE,
+                &mat[0][0]
+            );
+        }
+
+    } // namespace render
+} // namespace opengl

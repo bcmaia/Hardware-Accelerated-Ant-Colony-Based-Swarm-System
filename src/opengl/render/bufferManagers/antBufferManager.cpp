@@ -1,5 +1,7 @@
 #include <openglBuffersManager.h>
 
+
+
 void OpenglBuffersManager::createAntComponents()
 {
 	ColorVertex antVertices[3];
@@ -32,13 +34,12 @@ void OpenglBuffersManager::drawAnts(int numberOfAnts, Camera* camera)
 	antsVAO->unbind();
 }
 
-void OpenglBuffersManager::updateModelAnts(int numberOfAnts, vector<Ant*> ants)
+void OpenglBuffersManager::updateModelAnts(int numberOfAnts, vector<ant::Ant*> ants)
 {
 	glm::mat4 model;
-	Ant* currentAnt;
+	ant::Ant* currentAnt;
 
-	for (int i = 0; i < numberOfAnts; i++)
-	{	   
+	for (int i = 0; i < numberOfAnts; i++) {	   
 		currentAnt = ants[i];
 
 		model = glm::mat4(1.0f);

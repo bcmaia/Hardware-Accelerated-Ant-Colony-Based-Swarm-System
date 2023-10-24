@@ -7,7 +7,12 @@
         "vector": "cpp",
         "string_view": "cpp",
         "initializer_list": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "cstdint": "cpp",
+        "new": "cpp"
     },
     "C_Cpp.default.compilerPath": "/home/bdev/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd"
 }

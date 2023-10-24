@@ -1,9 +1,9 @@
 target/debug/obj/Simulator.o: src/Simulator.cpp include/Simulator.h \
  include/swarmEnvironment/environment.h \
  include/opengl/render/bufferManagers/openglBuffersManager.h \
+ include/opengl/render/VAO.h include/opengl/render/EBO.h dep/glad/glad.h \
+ dep/KHR/khrplatform.h include/opengl/render/VBO.h \
  include/opengl/render/shader.h dep/../dep/glad/glad.h \
- dep/KHR/khrplatform.h include/opengl/render/VAO.h \
- include/opengl/render/VBO.h dep/glad/glad.h include/opengl/render/EBO.h \
  include/opengl/window/UI.h include/opengl/utils/constants.h \
  src/imgui/imgui.h src/imgui/imconfig.h \
  src/imgui/backends/imgui_impl_glfw.h \
@@ -30,13 +30,13 @@ target/debug/obj/Simulator.o: src/Simulator.cpp include/Simulator.h \
 include/Simulator.h:
 include/swarmEnvironment/environment.h:
 include/opengl/render/bufferManagers/openglBuffersManager.h:
+include/opengl/render/VAO.h:
+include/opengl/render/EBO.h:
+dep/glad/glad.h:
+dep/KHR/khrplatform.h:
+include/opengl/render/VBO.h:
 include/opengl/render/shader.h:
 dep/../dep/glad/glad.h:
-dep/KHR/khrplatform.h:
-include/opengl/render/VAO.h:
-include/opengl/render/VBO.h:
-dep/glad/glad.h:
-include/opengl/render/EBO.h:
 include/opengl/window/UI.h:
 include/opengl/utils/constants.h:
 src/imgui/imgui.h:

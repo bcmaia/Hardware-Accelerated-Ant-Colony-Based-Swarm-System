@@ -11,8 +11,9 @@
 
 #include <parameterAssigner.h>
 
-using namespace std;
+// using namespace std;
 
+namespace ant {
 class Ant 
 {
     public:
@@ -50,3 +51,4 @@ class Ant
         void makeDecision(vector<Anthill*> antColonies, vector<FoodSource*> foodSources,  int lR, int lG, int lB, int rR, int rG, int rB);
         void move(int l);
 };
+}

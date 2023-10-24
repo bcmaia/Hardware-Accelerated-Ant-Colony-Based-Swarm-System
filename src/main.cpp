@@ -4,7 +4,6 @@
 
 int main()
 {
-    
     //=== INITIALIZATIONS ===//
     simulator::Simulator Simulator;
     Simulator.init();

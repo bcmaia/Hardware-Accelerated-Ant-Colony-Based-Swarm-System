@@ -1,8 +1,8 @@
 #pragma once
 
+#include <cstdint>
 
 #include <openglBuffersManager.h>
-
 
 /**
  * @class Environment
@@ -24,7 +24,7 @@ class Environment
 
         vector<Anthill*> nests;
         vector<FoodSource*> foods;
-        vector<Ant*> ants;
+        vector<ant::Ant*> ants;
 
     public:
 

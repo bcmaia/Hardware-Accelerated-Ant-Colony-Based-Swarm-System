@@ -1,20 +1,20 @@
-#ifndef EBO_H
-#define EBO_H
-
+#pragma once
 #include <glad/glad.h>
 
-class EBO
-{
-    public:
-        // ID reference of Elements Buffer Object
-        
-        GLuint ID;
-        // Constructor that generates a Elements Buffer Object and links it to indices
-        EBO(GLsizeiptr size, GLuint* indices);
+namespace opengl {
+    namespace render {
+        class EBO {
+          public:
+            // ID reference of Elements Buffer Object
 
-        void bind();
-        void unbind();
-        void erase();
-};
+            GLuint ID;
+            // Constructor that generates a Elements Buffer Object and links it
+            // to indices
+            EBO(GLsizeiptr size, GLuint *indices);
 
-#endif
+            void bind();
+            void unbind();
+            void erase();
+        };
+    } // namespace render
+} // namespace opengl

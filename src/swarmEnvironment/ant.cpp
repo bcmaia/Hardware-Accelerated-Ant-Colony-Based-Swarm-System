@@ -9,6 +9,8 @@
 	4 - Timeout/lifetime voltar a ser explorer OK
 	5 - Se explorer encontrar trilha verde vira nestcarriercopia OK
 */
+
+namespace ant {
 Ant::Ant(int newId, float newPosX, float newPosY, AntParameters* antParameters)
 {
 	id = newId;
@@ -270,3 +272,4 @@ void Ant::makeDecision(vector<Anthill*> antColonies, vector < FoodSource* > food
 }
 
 	
+}

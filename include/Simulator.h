@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <iostream>
+
 #include <environment.h>
 #include <openglBuffersManager.h>
 
@@ -17,12 +19,11 @@ namespace simulator
      * @struct AdditionalCallbackParameters
      * @brief Additional parameters to be passed to GLFW callback functions.
      */
-    typedef struct
-    {
+    struct AdditionalCallbackParameters {
         Camera *camera;     ///< Camera object.
         GLFWwindow *window; ///< GLFW window handle.
         UI *userInterface;  ///< User interface object.
-    } AdditionalCallbackParameters;
+    };
 
     /**
      * @class Simulator

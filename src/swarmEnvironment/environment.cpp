@@ -94,7 +94,7 @@ void Environment::createAnt(int idNest, OpenglBuffersManager* openglBuffersManag
 
     for(int i = 0; i < antAmount; i++)
     {
-         Ant* ant = new Ant(numberOfAnts, posX, posY, antParameters);
+        ant::Ant* ant = new ant::Ant(numberOfAnts, posX, posY, antParameters);
         ants.push_back(ant);
         
         numberOfAnts++;
@@ -137,7 +137,7 @@ void Environment::placePheromone(int frameCounter)
     {
         for (int i = 0; i < numberOfAnts; i++)
         {
-            Ant* currentAnt = ants[i];
+            ant::Ant* currentAnt = ants[i];
 
             int xn, yn, index;
           
