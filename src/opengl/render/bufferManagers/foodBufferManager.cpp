@@ -1,5 +1,8 @@
 #include <openglBuffersManager.h>
 
+using namespace opengl::render;
+
+
 void OpenglBuffersManager::createFoodComponents()
 {
 	ColorVertex foodVertices[4];

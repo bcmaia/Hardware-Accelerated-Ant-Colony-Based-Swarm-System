@@ -86,10 +86,10 @@ void UI::render()
             ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), ImGuiDockNodeFlags_PassthruCentralNode);
         }
 
-        ImGui::Begin("Ant Colony", NULL, NULL);
+        ImGui::Begin("Ant Colony", nullptr);
         simulationControls();
             
-        if (ImGui::BeginTabBar("antColonyTabBar", NULL))
+        if (ImGui::BeginTabBar("antColonyTabBar"))
         {
             if (ImGui::BeginTabItem("Experiments"))
             {
@@ -105,10 +105,10 @@ void UI::render()
         }
         ImGui::End(); 
 
-        ImGui::Begin("Log", NULL, NULL);
+        ImGui::Begin("Log", nullptr);
         ImGui::End();
 
-        ImGui::Begin("Evolutionary Algorithm", NULL, NULL);
+        ImGui::Begin("Evolutionary Algorithm", nullptr);
         ImGui::End();
 
     ImGui::End();
@@ -167,7 +167,7 @@ void UI::experimentsTab()
         for (int i = 0; i < 3; i++)
             active_tabs.push_back(next_tab_id++);*/
 
-    if (ImGui::BeginTabBar("MyTabBar", NULL))
+    if (ImGui::BeginTabBar("MyTabBar"))
     {
         if (ImGui::TabItemButton("+", ImGuiTabItemFlags_Trailing | ImGuiTabItemFlags_NoTooltip))
         {
@@ -205,7 +205,7 @@ void UI::antsRealTimeInteractionsTab()
     const float floatSteps01 = 0.1f;
     const int intSteps1 = 1;
     const int intSteps100 = 100;
-    if (ImGui::BeginTabBar("realTimeInteractionsTabBar", NULL))
+    if (ImGui::BeginTabBar("realTimeInteractionsTabBar"))
     {
         if (ImGui::BeginTabItem("Environment"))
         {

@@ -1,5 +1,8 @@
 #include <openglBuffersManager.h>
 #include <iostream>
+
+using namespace opengl::render;
+
 void OpenglBuffersManager::createAnthillComponents()
 {
 	ColorVertex anthillVertices[4];

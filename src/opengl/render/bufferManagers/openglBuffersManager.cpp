@@ -8,6 +8,8 @@ GLuint textureId; // ID of texture
 int indexPBO = 0;
 int nextIndexPBO = 0;
 
+using namespace opengl::render;
+
 OpenglBuffersManager::OpenglBuffersManager()
 {
 	shaderAnts = new Shader();

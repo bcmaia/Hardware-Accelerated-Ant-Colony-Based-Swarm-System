@@ -4,16 +4,19 @@
 
 #include <openglBuffersManager.h>
 
-/**
- * @class Environment
- * @brief Manages the environment and defines/stores some parameters.
- */
-class Environment
-{
-    public:
-        uint8_t* pheromoneMatrix;
-        
-        ParameterAssigner* parameterAssigner;
+namespace swarm {
+
+    using OpenglBuffersManager = opengl::render::OpenglBuffersManager;
+
+    /**
+     * @class Environment
+     * @brief Manages the environment and defines/stores some parameters.
+     */
+    class Environment {
+      public:
+        uint8_t *pheromoneMatrix;
+
+        ParameterAssigner *parameterAssigner;
 
         int placePheromoneRate;
         int pheromoneEvaporationRate;
@@ -22,27 +25,29 @@ class Environment
         int numberOfFoods;
         int numberOfAnts;
 
-        vector<Anthill*> nests;
-        vector<FoodSource*> foods;
-        vector<ant::Ant*> ants;
+        vector<Anthill *> nests;
+        vector<FoodSource *> foods;
+        vector<swarm::Ant *> ants;
 
-    public:
+      public:
+        Environment(ParameterAssigner *parametersAssigner);
 
-        Environment(ParameterAssigner* parametersAssigner);
-
-        void initializeEnvironment(OpenglBuffersManager* openglBuffersManager);
+        void initializeEnvironment(OpenglBuffersManager *openglBuffersManager);
         void resetEnvironment();
 
-        void createNest(int idNest, OpenglBuffersManager* openglBuffersManager);
-        void createFoodSource(int idFood, OpenglBuffersManager* openglBuffersManager);
-        void createAnt(int idNest, OpenglBuffersManager* openglBuffersManager);
+        void createNest(int idNest, OpenglBuffersManager *openglBuffersManager);
+        void createFoodSource(
+            int idFood, OpenglBuffersManager *openglBuffersManager
+        );
+        void createAnt(int idNest, OpenglBuffersManager *openglBuffersManager);
 
         void run(int frameCounter);
-        void draw(OpenglBuffersManager* openglBuffersManager, Camera* camera);
+        void draw(OpenglBuffersManager *openglBuffersManager, Camera *camera);
 
         void moveAnts(int frameCounter);
 
         void placePheromone(int frameCounter);
 
         void pheromoneEvaporation(int frameCounter);
-};
+    };
+} // namespace swarm

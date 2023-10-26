@@ -12,7 +12,8 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "cstdint": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "fstream": "cpp"
     },
     "C_Cpp.default.compilerPath": "/home/bdev/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd"
 }

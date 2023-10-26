@@ -66,9 +66,9 @@ CUDAC := nvcc
 CC := g++
 STD_MODE := debug
 
-CUDACFLAGS := -lGL -lglfw -lX11 -lpthread -lXrandr -ldl -lm -pg
+CUDACFLAGS := -lGL -lglfw -lX11 -lpthread -lXrandr -ldl -lm -pg -std=c++20 -Xcudafe --diag_suppress=esa_on_defaulted_function_ignored
 # CCFLAGS := -Wall -Wextra
-CCFLAGS := -lGL -lglfw -lX11 -lpthread -lXrandr -ldl -lm -march=native -Wall -pg #-lXi
+CCFLAGS := -lGL -lglfw -lX11 -lpthread -lXrandr -ldl -lm -march=native -Wall -pg -std=c++20 #-lXi
 LDFLAGS := -lm -lncursesw -ltbb 
 VALGRIND_FLAGS := --leak-check=full --show-leak-kinds=all
 
@@ -92,10 +92,10 @@ TARGET_ROOT_DIR := target
 
 DEBUG_CCFLAGS := -O0 -g -ggdb3 -DDEBUG
 # RELEASE_CCFLAGS := -O3 -DNDEBUG -pedantic -Werror -DRELEASE
-RELEASE_CCFLAGS := -O3 -DNDEBUG -DRELEASE # NOTE: TEMPORARY
+RELEASE_CCFLAGS := -O3 -DNDEBUG -DRELEASE -pedantic -Werror # NOTE: TEMPORARY
 
 DEBUG_CUDACFLAGS := -O0 -g -DDEBUG
-RELEASE_CUDACFLAGS := -O3 -DNDEBUG -DRELEASE 
+RELEASE_CUDACFLAGS := -O3 -DNDEBUG -DRELEASE -pedantic -Werror
 
 
 ifneq ($(mode),)
@@ -240,6 +240,9 @@ else
 endif
 
 
+
+
+
 # Compile C++ source files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@$(ECHO) "[$(MODE):rule:compile]\t Compiling $(subst $(OBJ_DIR)/,,$@)..."
@@ -264,6 +267,7 @@ else
 endif
 
 
+
 # Compile Cuda source files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cu
 	@$(ECHO) "[$(MODE):rule:compile]\t Compiling $(subst $(OBJ_DIR)/,,$@)..."
@@ -274,6 +278,8 @@ else
 	$(MKDIR) $(@D)
 	$(CUDAC) $(CUDACFLAGS) $(INCLUDE) -MMD -MP -c "$<" -o "$@"
 endif
+
+
 
 
 

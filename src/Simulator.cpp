@@ -22,7 +22,7 @@ static void
 mouseButtonCallback(GLFWwindow *window, int button, int action, int mods);
 
 //============================================================================//
-//=================// Public Functions //=====================================//
+//=================//   VISIBLE Functions   //================================//
 //============================================================================//
 
 // Destructor
@@ -54,7 +54,7 @@ void simulator::Simulator::init() {
         mode->width, mode->height, "Swarm Simulator", monitor, nullptr
     );
     glfwSetWindowMonitor(
-        window, NULL, 1, 1, mode->width, mode->height, mode->refreshRate
+        window, nullptr, 1, 1, mode->width, mode->height, mode->refreshRate
     );
 
     swarmSimulatorWindow = window;
@@ -141,106 +141,121 @@ void simulator::Simulator::run(OpenglBuffersManager *openglBuffersManager) {
     while (CLOSED != userInterface->stateSimulation &&
            !glfwWindowShouldClose(swarmSimulatorWindow)) {
         switch (userInterface->stateSimulation) {
-        case RESET: {
-            // Reset simulation state and buffers
-            environment->resetEnvironment();
-            openglBuffersManager->resetBufferManager();
-            pre_render();
 
-            // Loop until state changes
-            while (RESET == userInterface->stateSimulation) {
-                pollEvents(); // Increment frame counter here
+        case RESET:
+            handle_reset(openglBuffersManager);
+            break; // case RESET
 
-                // Handle UI actions for environment initialization
-                switch (userInterface->UIAction) {
-                case ENVIRONMENT_INIT:
-                    parameterAssigner =
-                        new ParameterAssigner("experiments/experiment.json");
-                    environment = new Environment(parameterAssigner);
-                    environment->initializeEnvironment(openglBuffersManager);
-                    environment->draw(openglBuffersManager, camera);
-                    break; //
-                case ADD_NEST:
-                    environment->createNest(0, openglBuffersManager);
-                    userInterface->UIAction = DO_NOTHING;
-                    break; // case ADD_NEST
+        case RUNNING:
+            handle_running(openglBuffersManager);
+            break; // case RUNNING
 
-                case ADD_FOOD:
-                    environment->createFoodSource(0, openglBuffersManager);
-                    userInterface->UIAction = DO_NOTHING;
-                    break; // case ADD_FOOD
+        case PAUSED:
+            handle_paused(openglBuffersManager);
+            break; // case PAUSED
 
-                case ADD_ANT:
-                    environment->createAnt(
-                        userInterface->nestID, openglBuffersManager
-                    );
-                    userInterface->UIAction = DO_NOTHING;
-                    break; // case ADD_ANT
-
-                // TODO: think about what should happen here and implement
-                // it.
-                default:
-                    throw std::runtime_error("Switch case not implemented");
-
-                } // swtich
-
-                userInterface->run();
-                environment->draw(openglBuffersManager, camera);
-                post_render();
-            }    // while loo
-        } break; // case RESET
-
-        case RUNNING: {
-            // Run simulation loop while in RUNNING state
-            while (userInterface->stateSimulation == RUNNING) {
-                pollEvents(); // Framecounter++ here
-
-                environment->run(frameCounter);
-
-                if (userInterface->turnOnGraphics &&
-                    ((frameCounter % openGlRenderUpdateFrameRate) == 0)) {
-                    openGlRenderUpdateFrameRate =
-                        userInterface->openGlRenderUpdateFrameRate;
-                    pre_render();
-                    environment->draw(openglBuffersManager, camera);
-                }                     // if statement
-                userInterface->run(); // RETIRAR DAQUI PARA MAIOR
-                                      // EXCLUSIVIDADE DO RUN
-                post_render();
-            } // while loop
-
-        } break; // case RUNNING
-
-        case PAUSED: {
-            parameterAssigner = new ParameterAssigner(
-                "src/swarmEnvironment/experiments/experiment.json"
-            );
-            environment = new Environment(parameterAssigner);
-            environment->initializeEnvironment(openglBuffersManager);
-
-            environment->createNest(0, openglBuffersManager);
-            environment->createFoodSource(0, openglBuffersManager);
-            environment->createFoodSource(1, openglBuffersManager);
-            environment->createFoodSource(2, openglBuffersManager);
-            environment->createFoodSource(3, openglBuffersManager);
-            environment->createAnt(0, openglBuffersManager);
-            while (userInterface->stateSimulation == PAUSED) {
-                pollEvents();
-
-                pre_render();
-                environment->draw(openglBuffersManager, camera);
-
-                userInterface->run();
-                post_render();
-            } // while loop
-
-        } break; // case PAUSED
-
-        case CLOSED:; // CLOSED wont happen
+        case CLOSED: return;
 
         } // switch statement
     }     // while loop
 } // function scope
+
+void simulator::Simulator::handle_paused(
+    OpenglBuffersManager *openglBuffersManager
+) {
+    parameterAssigner =
+        new ParameterAssigner("src/swarmEnvironment/experiments/experiment.json"
+        );
+    environment = new swarm::Environment(parameterAssigner);
+    environment->initializeEnvironment(openglBuffersManager);
+
+    environment->createNest(0, openglBuffersManager);
+    environment->createFoodSource(0, openglBuffersManager);
+    environment->createFoodSource(1, openglBuffersManager);
+    environment->createFoodSource(2, openglBuffersManager);
+    environment->createFoodSource(3, openglBuffersManager);
+    environment->createAnt(0, openglBuffersManager);
+    while (userInterface->stateSimulation == PAUSED) {
+        pollEvents();
+
+        pre_render();
+        environment->draw(openglBuffersManager, camera);
+
+        userInterface->run();
+        post_render();
+    } // while loop
+}
+
+void simulator::Simulator::handle_running(
+    OpenglBuffersManager *openglBuffersManager
+) {
+    // Run simulation loop while in RUNNING state
+    while (RUNNING == userInterface->stateSimulation) {
+        pollEvents(); // Framecounter++ here
+
+        environment->run(frameCounter);
+
+        if (userInterface->turnOnGraphics &&
+            ((frameCounter % openGlRenderUpdateFrameRate) == 0)) {
+            openGlRenderUpdateFrameRate =
+                userInterface->openGlRenderUpdateFrameRate;
+            pre_render();
+            environment->draw(openglBuffersManager, camera);
+        }                     // if statement
+        userInterface->run(); // RETIRAR DAQUI PARA MAIOR
+                              // EXCLUSIVIDADE DO RUN
+        post_render();
+    } // while loop
+}
+
+void simulator::Simulator::handle_reset(
+    OpenglBuffersManager *openglBuffersManager
+) {
+    // Reset simulation state and buffers
+    environment->resetEnvironment();
+    openglBuffersManager->resetBufferManager();
+    pre_render();
+
+    // Loop until state changes
+    while (RESET == userInterface->stateSimulation) {
+        pollEvents(); // Increment frame counter here
+
+        // Handle UI actions for environment initialization
+        switch (userInterface->UIAction) {
+        case ENVIRONMENT_INIT:
+            parameterAssigner =
+                new ParameterAssigner("experiments/experiment.json");
+            environment = new swarm::Environment(parameterAssigner);
+            environment->initializeEnvironment(openglBuffersManager);
+            environment->draw(openglBuffersManager, camera);
+            break; //
+        case ADD_NEST:
+            environment->createNest(0, openglBuffersManager);
+            userInterface->UIAction = DO_NOTHING;
+            break; // case ADD_NEST
+
+        case ADD_FOOD:
+            environment->createFoodSource(0, openglBuffersManager);
+            userInterface->UIAction = DO_NOTHING;
+            break; // case ADD_FOOD
+
+        case ADD_ANT:
+            environment->createAnt(userInterface->nestID, openglBuffersManager);
+            userInterface->UIAction = DO_NOTHING;
+            break; // case ADD_ANT
+
+        // TODO: think about what should happen here and implement
+        // it.
+        default:
+            throw std::runtime_error("Switch case not implemented");
+
+        } // swtich
+
+        userInterface->run();
+        environment->draw(openglBuffersManager, camera);
+        post_render();
+    }
+}
 
 //============================================================================//
 //=================// Static functions implementation /=/=====================//

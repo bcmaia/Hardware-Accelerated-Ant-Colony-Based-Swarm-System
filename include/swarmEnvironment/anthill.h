@@ -17,8 +17,8 @@ class Anthill
         int antAmount;
 
 
-        Anthill(AnthillParameters* anthillParameters);
-        bool antColision(float antPosx, float antPosY);
+        Anthill(const AnthillParameters* anthillParameters);
+        bool antColision(const float antPosx, const float antPosY);
 
 
 };
