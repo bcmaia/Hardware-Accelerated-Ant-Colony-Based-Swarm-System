@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-
+#include <memory>
 #include <openglBuffersManager.h>
 
 namespace swarm {
@@ -14,9 +14,9 @@ namespace swarm {
      */
     class Environment {
       public:
-        uint8_t *pheromoneMatrix;
+        std::unique_ptr<uint8_t[]>pheromoneMatrix;
 
-        ParameterAssigner *parameterAssigner;
+        ParameterAssigner *parameterAssigner = nullptr;
 
         int placePheromoneRate;
         int pheromoneEvaporationRate;
@@ -31,6 +31,7 @@ namespace swarm {
 
       public:
         Environment(ParameterAssigner *parametersAssigner);
+        ~Environment();
 
         void initializeEnvironment(OpenglBuffersManager *openglBuffersManager);
         void resetEnvironment();

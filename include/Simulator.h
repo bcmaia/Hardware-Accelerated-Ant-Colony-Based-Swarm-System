@@ -37,11 +37,15 @@ namespace simulator {
         void run(OpenglBuffersManager *openglBuffersManager); 
 
       private:
+        bool errflag = false; ///< if true, we cannot run
+
+        void raise_errflag (void) {errflag = true;}
+
         AdditionalCallbackParameters
             *AdditionalParameters; ///< Additional callback parameters.
 
         GLFWwindow
-            *swarmSimulatorWindow; ///< GLFW window handle for the simulator.
+            *swarmSimulatorWindow = nullptr; ///< GLFW window handle for the simulator.
         Camera *camera;            ///< Camera object.
         UI *userInterface;         ///< User interface object.
         swarm::Environment *environment;      ///< Environment object.

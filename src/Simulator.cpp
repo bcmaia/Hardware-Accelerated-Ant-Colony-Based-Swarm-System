@@ -27,7 +27,7 @@ mouseButtonCallback(GLFWwindow *window, int button, int action, int mods);
 
 // Destructor
 simulator::Simulator::~Simulator() {
-    glfwDestroyWindow(swarmSimulatorWindow);
+    if (nullptr != swarmSimulatorWindow) glfwDestroyWindow(swarmSimulatorWindow);
     glfwTerminate();
 }
 
@@ -64,9 +64,9 @@ void simulator::Simulator::init() {
 
     // glfw window creation
     // --------------------
-    if (window == NULL) {
+    if (nullptr == window) {
         std::cout << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
+        raise_errflag();
         return;
     }
 
@@ -82,6 +82,7 @@ void simulator::Simulator::init() {
     // ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cout << "Failed to initialize GLAD" << std::endl;
+        raise_errflag();
         return;
     }
 
@@ -137,6 +138,8 @@ void simulator::Simulator::post_render() {
  * @param openglBuffersManager Pointer to the OpenGL buffers manager.
  */
 void simulator::Simulator::run(OpenglBuffersManager *openglBuffersManager) {
+    if (errflag) return;
+
     // Main rendering loop
     while (CLOSED != userInterface->stateSimulation &&
            !glfwWindowShouldClose(swarmSimulatorWindow)) {
@@ -154,7 +157,8 @@ void simulator::Simulator::run(OpenglBuffersManager *openglBuffersManager) {
             handle_paused(openglBuffersManager);
             break; // case PAUSED
 
-        case CLOSED: return;
+        case CLOSED:
+            return;
 
         } // switch statement
     }     // while loop
@@ -195,13 +199,16 @@ void simulator::Simulator::handle_running(
 
         environment->run(frameCounter);
 
-        if (userInterface->turnOnGraphics &&
-            ((frameCounter % openGlRenderUpdateFrameRate) == 0)) {
+        bool start_of_second =
+            0 == (frameCounter % openGlRenderUpdateFrameRate);
+
+        if (userInterface->turnOnGraphics && start_of_second) {
             openGlRenderUpdateFrameRate =
                 userInterface->openGlRenderUpdateFrameRate;
             pre_render();
             environment->draw(openglBuffersManager, camera);
-        }                     // if statement
+        } // if statement
+
         userInterface->run(); // RETIRAR DAQUI PARA MAIOR
                               // EXCLUSIVIDADE DO RUN
         post_render();
@@ -228,7 +235,8 @@ void simulator::Simulator::handle_reset(
             environment = new swarm::Environment(parameterAssigner);
             environment->initializeEnvironment(openglBuffersManager);
             environment->draw(openglBuffersManager, camera);
-            break; //
+            break; // case ENVIRONMENT_INIT
+
         case ADD_NEST:
             environment->createNest(0, openglBuffersManager);
             userInterface->UIAction = DO_NOTHING;
@@ -244,8 +252,7 @@ void simulator::Simulator::handle_reset(
             userInterface->UIAction = DO_NOTHING;
             break; // case ADD_ANT
 
-        // TODO: think about what should happen here and implement
-        // it.
+        // TODO: think about what should happen here and implement.
         default:
             throw std::runtime_error("Switch case not implemented");
 

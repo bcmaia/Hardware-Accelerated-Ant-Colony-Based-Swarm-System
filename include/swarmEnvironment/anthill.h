@@ -1,25 +1,25 @@
-#ifndef ANTHILL_H
-#define ANTHILL_H
+#pragma once
 
-#include <vector>
 #include <parameterAssigner.h>
+#include <vector>
 
-using namespace std;
-
-class Anthill 
-{
-    public:
+namespace swarm {
+    class Anthill {
+      private:
         int id;
-
+        float size;
         float posX;
         float posY;
-        float size;
         int antAmount;
 
 
-        Anthill(const AnthillParameters* anthillParameters);
+    public:
+
+        float get_size (void) const noexcept {return size;}
+        float get_posX (void) const noexcept {return posX;}
+        float get_posY (void) const noexcept {return posY;}
+
+        Anthill(const AnthillParameters *anthillParameters);
         bool antColision(const float antPosx, const float antPosY);
-
-
-};
-#endif
+    };
+} // namespace swarm

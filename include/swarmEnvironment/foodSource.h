@@ -1,21 +1,23 @@
-#ifndef FOODSOURCE_H
-#define FOODSOURCE_H
+#pragma once
 
 #include <constants.h>
 #include <parameterAssigner.h>
 
-using namespace std;
-    
-class FoodSource 
-{
-    public:
+namespace swarm {
+    class FoodSource {
+      public:
+        FoodSource(const FoodSourceParameters *foodParameters);
+        bool antColision(const float antPosx, const float antPosY);
+
+        float get_size (void) const noexcept {return size;}
+        float get_posX (void) const noexcept {return posX;}
+        float get_posY (void) const noexcept {return posY;}
+
+      private:
         int id;
         int foodAmount;
-        float posX, posY;
+        float posX;
+        float posY;
         float size;
-
-        FoodSource(FoodSourceParameters* foodParameters);
-
-        bool antColision(float antPosx, float antPosY);
-};
-#endif
+    };
+} // namespace swarm

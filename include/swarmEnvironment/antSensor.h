@@ -1,15 +1,32 @@
-#pragma once 
+/**
+ * @file antSensor.h
+ * @brief this header contains the class for an ant sensor, the ant's antenna.
+ *
+ * In this simulator, the antenna main use is as a sensorial organ that gides
+ * the ant based on "smell". We suppose every ant has two antenna.
+ */
 
-#include <parameterAssigner.h>
-#include <sinCosLookup.h>
+
+#pragma once
+
+
 #include <constants.h>
 #include <glm/gtc/matrix_transform.hpp>
+#include <parameterAssigner.h>
+#include <sinCosLookup.h>
 
-using namespace std;
 
-class AntSensor 
-{
-    public:
+namespace swarm {
+    class AntSensor {
+      public:
+        AntSensor() {}
+        AntSensor(const int id, const AntSensorParameters *antSensorParameters);
+        int
+        detectPheromone(const uint8_t *pheromoneMatrix, const PheromoneType pheromoneType);
+        void move(float antPosX, float antPosy, float theta);
+
+      private:
+        bool valid = false;
         int id;
 
         float posX;
@@ -23,8 +40,5 @@ class AntSensor
         int indexSensorY;
 
         SensorType sensorType;
-
-        AntSensor(int id, AntSensorParameters* antSensorParameters);
-        int detectPheromone(uint8_t* pheromoneMatrix, PheromoneType pheromoneType);
-        void move(float antPosX, float antPosy, float theta);
-};
+    };
+} // namespace swarm

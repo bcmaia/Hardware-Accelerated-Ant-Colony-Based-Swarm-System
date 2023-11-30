@@ -23,8 +23,8 @@ namespace swarm {
         int lifeTime;
         int viewFrequency;
 
-        AntSensor *pheromoneSensorR;
-        AntSensor *pheromoneSensorL;
+        AntSensor pheromoneSensorR;
+        AntSensor pheromoneSensorL;
 
         bool foundNest;
         bool foundFood;

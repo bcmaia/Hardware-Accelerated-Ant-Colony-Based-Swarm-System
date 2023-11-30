@@ -5,7 +5,7 @@ namespace swarm {
     Environment::Environment(ParameterAssigner *parameterAssigner) {
         this->parameterAssigner = parameterAssigner;
 
-        pheromoneMatrix = (uint8_t *)malloc(sizeof(uint8_t) * DATA_SIZE);
+        pheromoneMatrix = std::make_unique<uint8_t[]>(DATA_SIZE);
     }
 
     void Environment::initializeEnvironment(
@@ -81,7 +81,7 @@ namespace swarm {
 
         openglBuffersManager->addElement(
             &(openglBuffersManager->anthillsTransformationMatrices),
-            anthill->size, anthill->posX, anthill->posY, 0.0f
+            anthill->get_size(), anthill->get_posX(), anthill->get_posY(), 0.0f
         );
         openglBuffersManager->updateBuffer(
             openglBuffersManager->anthillsTransformationMatricesVBO,
@@ -102,8 +102,8 @@ namespace swarm {
         numberOfFoods++;
 
         openglBuffersManager->addElement(
-            &(openglBuffersManager->foodsTransformationMatrices), food->size,
-            food->posX, food->posY, 0.0f
+            &(openglBuffersManager->foodsTransformationMatrices), food->get_size(),
+            food->get_posX(), food->get_posY(), 0.0f
         );
         openglBuffersManager->updateBuffer(
             openglBuffersManager->foodsTransformationMatricesVBO, numberOfFoods,
@@ -157,14 +157,14 @@ namespace swarm {
         openglBuffersManager->drawAnts(numberOfAnts, camera);
         openglBuffersManager->drawAnthills(numberOfNests, camera);
         openglBuffersManager->drawFoods(numberOfFoods, camera);
-        openglBuffersManager->drawPheromone(pheromoneMatrix, camera);
+        openglBuffersManager->drawPheromone(pheromoneMatrix.get(), camera);
     }
 
     void Environment::moveAnts(int frameCounter) {
         for (int i = 0; i < numberOfAnts; i++) {
             ants[i]->move(frameCounter);
             ants[i]->environmentAnalysis(
-                frameCounter, pheromoneMatrix, nests, foods
+                frameCounter, pheromoneMatrix.get(), nests, foods
             );
         }
     }
