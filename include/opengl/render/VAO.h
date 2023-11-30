@@ -1,3 +1,14 @@
+/** 
+ * @file VAO.h
+ * 
+ * @brief This file contains the declaration of the VAO class, which represents
+ * a Vertex Array Object in OpenGL.
+ * 
+ * @ingroup Opengl
+ * @ingroup Render
+ * 
+ */
+
 #pragma once
 
 #include <string>
