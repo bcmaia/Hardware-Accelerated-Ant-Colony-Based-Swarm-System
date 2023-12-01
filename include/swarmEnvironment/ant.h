@@ -1,16 +1,19 @@
 #pragma once
 
+#include <cstdint>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include <sinCosLookup.h>
+// #include <sinCosLookup.h>
+#include "utils/swarmath.hpp"
 #include <antSensor.h>
 #include <anthill.h>
 #include <foodSource.h>
 #include <parameterAssigner.h>
 
 namespace swarm {
-    // The bounds that define where a ant can stay
+    // The bounds that define where a ant can go
     constexpr float LOWER_BOUND = -0.990f;
     constexpr float UPPER_BOUND = +0.990f;
 

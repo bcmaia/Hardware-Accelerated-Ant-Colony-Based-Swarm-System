@@ -1,7 +1,6 @@
 #include <Simulator.h>
 #include <iostream>
 
-#include "utils/math.hpp"
 #include <cmath>
 #include <functional>
 

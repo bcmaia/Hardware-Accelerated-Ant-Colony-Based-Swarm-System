@@ -1,5 +1,5 @@
-#include <ant.h>
 #include <iostream>
+#include "ant.h"
 
 /*
     TODO LIST:
@@ -12,6 +12,10 @@
 */
 
 namespace swarm {
+    // Shorthand
+    using Trig = swarmath::Trig;
+
+
     /**
      * @brief Constructor for Ant class.
      * 
@@ -50,12 +54,9 @@ namespace swarm {
      */
     void Ant::move(int l) {
         lifeTime++;
-        int angle = (int)((theta / M_PI) * 1800);
-        if (angle < 0) angle += 3600;
-        if (angle >= 3600) angle -= 3600;
 
-        posX += velocity * cosLookup[angle];
-        posY += velocity * sinLookup[angle];
+        posX += velocity * Trig::cos(theta);
+        posY += velocity * Trig::sin(theta);
 
         put_in_bounds();
     }
@@ -85,11 +86,12 @@ namespace swarm {
         int frameCounter, uint8_t *pheromoneMatrix,
         vector<Anthill *> antColonies, vector<FoodSource *> foodSources
     ) {
-        if (frameCounter % viewFrequency == 0) {
-
+        if (0 == (frameCounter % viewFrequency)) {
+            // Update sensor position
             pheromoneSensorL.move(posX, posY, theta);
             pheromoneSensorR.move(posX, posY, theta);
 
+            // Making the decision: which state will be next?
             makeDecision(
                 antColonies, foodSources,
                 pheromoneSensorL.detectPheromone(pheromoneMatrix, RED),
@@ -100,16 +102,9 @@ namespace swarm {
                 pheromoneSensorR.detectPheromone(pheromoneMatrix, BLUE)
             );
 
-            // Border Treatment
-            // if(xSensorL < -0.990f || xSensorL > 0.990f || ySensorL < -0.990f
-            // || ySensorL > 0.990f) theta +=
-            // glm::radians((float)(rand()%360)/10.0f-1.0f)*4.0f; else
-            // if(xSensorR < -0.990f || xSensorR > 0.990f || ySensorR < -0.990f
-            // || ySensorR > 0.990f) theta -=
-            // glm::radians((float)(rand()%360)/10.0f-1.0f)*4.0f;
-
+            // Update theta angle
             if (theta < 0) theta += 2 * M_PI;
-            if (theta >= 2 * M_PI) theta -= 2 * M_PI;
+            else if (theta >= swarmath::DOUBLE_PI) theta -= swarmath::DOUBLE_PI;
         }
     }
 
@@ -120,7 +115,7 @@ namespace swarm {
      * @return true if there is a collision with a food source, false otherwise.
      */
     bool Ant::foodColision(vector<FoodSource *> foodSources) {
-        for (int i = 0; i < (int)foodSources.size(); i++) {
+        for (size_t i = 0; i < foodSources.size(); i++) {
             if (foodSources[i]->antColision(posX, posY)) {
                 posX = foodSources[i]->get_posX();
                 posY = foodSources[i]->get_posY();
@@ -149,6 +144,11 @@ namespace swarm {
         return false;
     }
 
+    // TODO: add a better random generator
+    static inline float get_rand_angle_inc (void) {
+        return glm::radians((float)(rand() % 360) / 6.0f) * 0.1f;
+    }
+
     /**
      * @brief Changes the state of the ant.
      * 
@@ -156,47 +156,40 @@ namespace swarm {
      */
     void Ant::changeState(AntStates newState) {
         switch (newState) {
-        case EXPLORER:
+            // When exploring, the ant will go in a random direction in a
+            // straight line until it finds something interesting, all the while
+            // leaving a pheromone trail behind it.
+            case EXPLORER:
+                state = EXPLORER;
+                pheromoneType = 1;
+                placePheromoneIntensity = 60;
+                break;
 
-            state = EXPLORER;
-            pheromoneType = 1;
-            placePheromoneIntensity = 60;
+            case BACKHOME:
+                theta += glm::radians(180.0f);
+                state = BACKHOME;
+                pheromoneType = -1;
+                break;
 
-            break;
+            case CARRIER:
+                state = CARRIER;
+                pheromoneType = 2;
+                placePheromoneIntensity = 60;
+                break;
 
-        case BACKHOME:
+            case NESTCARRIER:
+                state = NESTCARRIER;
+                pheromoneType = 2;
+                placePheromoneIntensity = 60;
+                break;
 
-            theta += glm::radians((float)(180.0f));
-            state = BACKHOME;
-            pheromoneType = -1;
+            case FOLLOWGREEN:
+                state = FOLLOWGREEN;
+                pheromoneType = -1;
+                break;
 
-            break;
-
-        case CARRIER:
-
-            state = CARRIER;
-            pheromoneType = 2;
-            placePheromoneIntensity = 60;
-
-            break;
-
-        case NESTCARRIER:
-
-            state = NESTCARRIER;
-            pheromoneType = 2;
-            placePheromoneIntensity = 60;
-
-            break;
-
-        case FOLLOWGREEN:
-
-            state = FOLLOWGREEN;
-            pheromoneType = -1;
-
-            break;
-
-        default:
-            break;
+            default:
+                break;
         }
     }
 
@@ -213,40 +206,43 @@ namespace swarm {
      * @param rB The blue pheromone level detected by the right sensor.
      */
     void Ant::makeDecision(
-        vector<Anthill *> antColonies, vector<FoodSource *> foodSources, int lR,
-        int lG, int lB, int rR, int rG, int rB
+        vector<Anthill *> antColonies, 
+        vector<FoodSource *> foodSources, 
+        int left_red,
+        int left_green, 
+        int left_blue, 
+        int right_red,
+        int right_green,
+        int right_blue
     ) {
         switch (state) {
         case EXPLORER:
+            if (right_red > left_red)
+                theta += get_rand_angle_inc();
+            else if (right_red < left_red)
+                theta -= get_rand_angle_inc();
 
-            if (rR > lR)
-                theta += glm::radians((float)(rand() % 360) / 6.0f) * 0.1f;
-            else if (rR < lR)
-                theta -= glm::radians((float)(rand() % 360) / 6.0f) * 0.1f;
-
-            if (rG > 0 || lG > 0) {
+            if (right_green > 0 || left_green > 0) {
                 changeState(FOLLOWGREEN);
             }
 
             if (foodColision(foodSources)) {
-                theta += glm::radians((float)(180.0f));
+                theta += swarmath::PI; // one revolution in radians
                 lifeTime = 0;
-
                 changeState(CARRIER);
             }
-
             break;
 
         case BACKHOME:
 
-            if (rR > lR)
-                theta -= glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
-            else if (rR < lR)
-                theta += glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
+            if (right_red > left_red)
+                theta -= get_rand_angle_inc() * 4.0f;
+            else if (right_red < left_red)
+                theta += get_rand_angle_inc() * 4.0f;
 
             if (nestColision(antColonies)) {
-                theta += glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
-                theta -= glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
+                theta += get_rand_angle_inc() * 4.0f;
+                theta -= get_rand_angle_inc() * 4.0f;
                 lifeTime = 0;
 
                 changeState(EXPLORER);
@@ -256,14 +252,14 @@ namespace swarm {
 
         case CARRIER:
 
-            if (rG > lG)
+            if (right_green > left_green)
                 theta += glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
-            else if (rG < lG)
+            else if (right_green < left_green)
                 theta -= glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
 
-            if (rR > lR)
+            if (right_red > left_red)
                 theta -= glm::radians((float)(rand() % 360) / 6.0f) * 0.1f;
-            else if (rR < lR)
+            else if (right_red < left_red)
                 theta += glm::radians((float)(rand() % 360) / 6.0f) * 0.1f;
 
             if (nestColision(antColonies)) {
@@ -276,28 +272,28 @@ namespace swarm {
 
         case NESTCARRIER:
 
-            if (rG > lG)
+            if (right_green > left_green) // TODO: make this readble
                 theta -= glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
-            else if (rG < lG)
+            else if (right_green < left_green)
                 theta += glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
 
-            if (carryingFood == true && nestColision(antColonies)) {
+            if (carryingFood && nestColision(antColonies)) {
                 lifeTime = 0;
-                theta += glm::radians((float)(180.0f));
+                theta += glm::radians((float)(180.0f)); // turn around
                 placePheromoneIntensity = 60;
             }
 
-            else if (carryingFood == false && foodColision(foodSources)) {
+            else if ((!carryingFood) && foodColision(foodSources)) {
 
-                theta += glm::radians((float)(180.0f));
+                theta += glm::radians((float)(180.0f)); // turn around
                 placePheromoneIntensity = 60;
             }
             break;
 
         case FOLLOWGREEN:
-            if (rG > lG)
+            if (right_green > left_green) // TODO: make this readble
                 theta -= glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
-            else if (rG < lG)
+            else if (right_green < left_green)
                 theta += glm::radians((float)(rand() % 360) / 6.0f) * 0.4f;
 
             if (nestColision(antColonies)) {

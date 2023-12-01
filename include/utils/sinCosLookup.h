@@ -1,5 +1,4 @@
-#ifndef SINCOSLOOKUP_H
-#define SINCOSLOOKUP_H
+#pragma once
 
 constexpr float cosLookup[3600] = 
 {
@@ -7207,5 +7206,3 @@ constexpr float sinLookup[3600] = {
     -0.00349077,
     -0.00174558,
 };
-
-#endif
