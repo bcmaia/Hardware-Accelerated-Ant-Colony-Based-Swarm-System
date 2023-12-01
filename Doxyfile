@@ -864,7 +864,54 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ./src ./include ./dep
+INPUT                  = \
+    ./readme.md \
+    ./src \
+    ./src/Simulator.cpp \
+    ./src/swarmEnvironment/ant.cpp \
+    ./src/swarmEnvironment/environment.cpp \
+    ./src/swarmEnvironment/experiments \
+    ./src/swarmEnvironment/experiments/experiment.json \
+    ./src/swarmEnvironment/antSensor.cpp \
+    ./src/swarmEnvironment/parameterAssigner.cpp \
+    ./src/swarmEnvironment/anthill.cpp \
+    ./src/swarmEnvironment/foodSource.cpp \
+    ./src/opengl/utils/glad.cpp \
+    ./src/opengl/utils/constants.cpp \
+    ./src/opengl/render/VAO.cpp \
+    ./src/opengl/render/shader.cpp \
+    ./src/opengl/render/VBO.cpp \
+    ./src/opengl/render/EBO.cpp \
+    ./src/opengl/render/bufferManagers \
+    ./src/opengl/render/bufferManagers/anthillBufferManager.cpp \
+    ./src/opengl/render/bufferManagers/openglBuffersManager.cpp \
+    ./src/opengl/render/bufferManagers/foodBufferManager.cpp \
+    ./src/opengl/render/bufferManagers/antBufferManager.cpp \
+    ./src/opengl/window/camera.cpp \
+    ./src/opengl/window/UI.cpp \
+    ./src/opengl/shaders/pheromoneFShader.s \
+    ./src/opengl/shaders/antFShader.s \
+    ./src/opengl/shaders/pheromoneVShader.s \
+    ./src/opengl/shaders/antVShader.s \
+    ./src/main.cu \
+    ./include/utils/math.hpp \
+    ./include/utils/sinCosLookup.h \
+    ./include/swarmEnvironment/parameterAssigner.h \
+    ./include/swarmEnvironment/environment.h \
+    ./include/swarmEnvironment/foodSource.h \
+    ./include/swarmEnvironment/anthill.h \
+    ./include/swarmEnvironment/ant.h \
+    ./include/swarmEnvironment/antSensor.h \
+    ./include/opengl/utils/constants.h \
+    ./include/opengl/render/shader.h \
+    ./include/opengl/render/VBO.h \
+    ./include/opengl/render/EBO.h \
+    ./include/opengl/render/VAO.h \
+    ./include/opengl/render/bufferManagers \
+    ./include/opengl/render/bufferManagers/openglBuffersManager.h \
+    ./include/opengl/window/camera.h \
+    ./include/opengl/window/UI.h \
+    ./include/Simulator.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1061,7 +1108,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE =
+USE_MDFILE_AS_MAINPAGE = readme.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['userinterface_15',['userInterface',['../structsimulator_1_1AdditionalCallbackParameters.html#a92e8a9c193c58a6ddcd7b915e69b9dcd',1,'simulator::AdditionalCallbackParameters::userInterface()'],['../classsimulator_1_1Simulator.html#a3a810e9cb3758271a4ea4b6429302ee5',1,'simulator::Simulator::userInterface()']]]
+  ['makedecision_53',['makeDecision',['../classswarm_1_1Ant.html#aec2bc9b2160a5e849228486b6ca7b0bc',1,'swarm::Ant']]],
+  ['move_54',['move',['../classswarm_1_1Ant.html#aece88194017439e9e88aab67e431a341',1,'swarm::Ant::move()'],['../classswarm_1_1AntSensor.html#a7a339c334ff2ecb28512d66994147c04',1,'swarm::AntSensor::move()']]]
 ];

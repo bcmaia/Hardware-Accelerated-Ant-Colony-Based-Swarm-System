@@ -9,10 +9,6 @@ Manages the Open\+GL context and rendering loop.
 
 {\ttfamily \#include $<$Simulator.\+h$>$}
 
-
-
-Collaboration diagram for simulator\+::Simulator\+:
-% FIG 0
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -20,40 +16,8 @@ Collaboration diagram for simulator\+::Simulator\+:
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classsimulator_1_1Simulator_a5867f84ac367ce5128a6ed54640bd2c3}{init}} ()
 \begin{DoxyCompactList}\small\item\em Initialize the Open\+GL context. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classsimulator_1_1Simulator_abb4f76b417b88eea6a1db661cbb41ba7}{poll\+Events}} ()
-\begin{DoxyCompactList}\small\item\em Poll GLFW events. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classsimulator_1_1Simulator_a68547ffff9b2f62c28f525900da4311f}{run}} (Opengl\+Buffers\+Manager $\ast$opengl\+Buffers\+Manager)
-\begin{DoxyCompactList}\small\item\em Run the rendering loop. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classsimulator_1_1Simulator_abfb9e64d18fb2accbce376501b82ab27}{pre\+\_\+render}} ()
-\begin{DoxyCompactList}\small\item\em Perform pre-\/render setup. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classsimulator_1_1Simulator_a60f719399f8240e4851bfd38fa6d73ff}{post\+\_\+render}} ()
-\begin{DoxyCompactList}\small\item\em Perform post-\/render tasks. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classsimulator_1_1Simulator_a588ed67b447f723ea86098dbf5cc0d91}\label{classsimulator_1_1Simulator_a588ed67b447f723ea86098dbf5cc0d91}} 
-\mbox{\hyperlink{structsimulator_1_1AdditionalCallbackParameters}{Additional\+Callback\+Parameters}} $\ast$ \mbox{\hyperlink{classsimulator_1_1Simulator_a588ed67b447f723ea86098dbf5cc0d91}{Additional\+Parameters}}
-\begin{DoxyCompactList}\small\item\em Additional callback parameters. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimulator_1_1Simulator_ae93b1f379390bb0490866f46edda1bfa}\label{classsimulator_1_1Simulator_ae93b1f379390bb0490866f46edda1bfa}} 
-GLFWwindow $\ast$ \mbox{\hyperlink{classsimulator_1_1Simulator_ae93b1f379390bb0490866f46edda1bfa}{swarm\+Simulator\+Window}}
-\begin{DoxyCompactList}\small\item\em GLFW window handle for the simulator. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimulator_1_1Simulator_a3df2ebcaa46c9b350886d788c7599387}\label{classsimulator_1_1Simulator_a3df2ebcaa46c9b350886d788c7599387}} 
-Camera $\ast$ \mbox{\hyperlink{classsimulator_1_1Simulator_a3df2ebcaa46c9b350886d788c7599387}{camera}}
-\begin{DoxyCompactList}\small\item\em Camera object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimulator_1_1Simulator_a3a810e9cb3758271a4ea4b6429302ee5}\label{classsimulator_1_1Simulator_a3a810e9cb3758271a4ea4b6429302ee5}} 
-UI $\ast$ \mbox{\hyperlink{classsimulator_1_1Simulator_a3a810e9cb3758271a4ea4b6429302ee5}{user\+Interface}}
-\begin{DoxyCompactList}\small\item\em User interface object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimulator_1_1Simulator_a5de398c05a33c0dc2a5d8fbdc5393b65}\label{classsimulator_1_1Simulator_a5de398c05a33c0dc2a5d8fbdc5393b65}} 
-Environment $\ast$ \mbox{\hyperlink{classsimulator_1_1Simulator_a5de398c05a33c0dc2a5d8fbdc5393b65}{environment}}
-\begin{DoxyCompactList}\small\item\em Environment object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimulator_1_1Simulator_a80e3011088b2a965f7c5f72dbe100e9b}\label{classsimulator_1_1Simulator_a80e3011088b2a965f7c5f72dbe100e9b}} 
-Parameter\+Assigner $\ast$ \mbox{\hyperlink{classsimulator_1_1Simulator_a80e3011088b2a965f7c5f72dbe100e9b}{parameter\+Assigner}}
-\begin{DoxyCompactList}\small\item\em Parameter assigner object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimulator_1_1Simulator_a30733ebf341d3254b4ec99cef3c49f6f}\label{classsimulator_1_1Simulator_a30733ebf341d3254b4ec99cef3c49f6f}} 
-unsigned int \mbox{\hyperlink{classsimulator_1_1Simulator_a30733ebf341d3254b4ec99cef3c49f6f}{frame\+Counter}}
-\begin{DoxyCompactList}\small\item\em Frame counter. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classsimulator_1_1Simulator_a812a743312333bf6196b49e3d14904f6}{open\+Gl\+Render\+Update\+Frame\+Rate}}
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classsimulator_1_1Simulator_a68547ffff9b2f62c28f525900da4311f}{run}} (\mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager}{Opengl\+Buffers\+Manager}} $\ast$opengl\+Buffers\+Manager)
+\begin{DoxyCompactList}\small\item\em Runs the rendering loop and manages different simulation states. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -83,47 +47,15 @@ Destructor.
 
 Initialize the Open\+GL context. 
 
-Initializes the Open\+GL context and necessary components. \mbox{\Hypertarget{classsimulator_1_1Simulator_abb4f76b417b88eea6a1db661cbb41ba7}\label{classsimulator_1_1Simulator_abb4f76b417b88eea6a1db661cbb41ba7}} 
-\index{simulator::Simulator@{simulator::Simulator}!pollEvents@{pollEvents}}
-\index{pollEvents@{pollEvents}!simulator::Simulator@{simulator::Simulator}}
-\doxysubsubsection{\texorpdfstring{pollEvents()}{pollEvents()}}
-{\footnotesize\ttfamily void simulator\+::\+Simulator\+::poll\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Poll GLFW events. 
-
-Polls GLFW events and updates the frame counter. \mbox{\Hypertarget{classsimulator_1_1Simulator_a60f719399f8240e4851bfd38fa6d73ff}\label{classsimulator_1_1Simulator_a60f719399f8240e4851bfd38fa6d73ff}} 
-\index{simulator::Simulator@{simulator::Simulator}!post\_render@{post\_render}}
-\index{post\_render@{post\_render}!simulator::Simulator@{simulator::Simulator}}
-\doxysubsubsection{\texorpdfstring{post\_render()}{post\_render()}}
-{\footnotesize\ttfamily void simulator\+::\+Simulator\+::post\+\_\+render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Perform post-\/render tasks. 
-
-Performs post-\/render tasks, like swapping buffers. \mbox{\Hypertarget{classsimulator_1_1Simulator_abfb9e64d18fb2accbce376501b82ab27}\label{classsimulator_1_1Simulator_abfb9e64d18fb2accbce376501b82ab27}} 
-\index{simulator::Simulator@{simulator::Simulator}!pre\_render@{pre\_render}}
-\index{pre\_render@{pre\_render}!simulator::Simulator@{simulator::Simulator}}
-\doxysubsubsection{\texorpdfstring{pre\_render()}{pre\_render()}}
-{\footnotesize\ttfamily void simulator\+::\+Simulator\+::pre\+\_\+render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Perform pre-\/render setup. 
-
-Performs pre-\/render setup, including clearing buffers. \mbox{\Hypertarget{classsimulator_1_1Simulator_a68547ffff9b2f62c28f525900da4311f}\label{classsimulator_1_1Simulator_a68547ffff9b2f62c28f525900da4311f}} 
+Initializes the Open\+GL context and necessary components. \mbox{\Hypertarget{classsimulator_1_1Simulator_a68547ffff9b2f62c28f525900da4311f}\label{classsimulator_1_1Simulator_a68547ffff9b2f62c28f525900da4311f}} 
 \index{simulator::Simulator@{simulator::Simulator}!run@{run}}
 \index{run@{run}!simulator::Simulator@{simulator::Simulator}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily void simulator\+::\+Simulator\+::run (\begin{DoxyParamCaption}\item[{Opengl\+Buffers\+Manager $\ast$}]{opengl\+Buffers\+Manager }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void simulator\+::\+Simulator\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager}{Opengl\+Buffers\+Manager}} $\ast$}]{opengl\+Buffers\+Manager }\end{DoxyParamCaption})}
 
 
 
-Run the rendering loop. 
-
-Runs the rendering loop and manages different simulation states.
+Runs the rendering loop and manages different simulation states. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -131,15 +63,6 @@ Runs the rendering loop and manages different simulation states.
 \hline
 \end{DoxyParams}
 
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classsimulator_1_1Simulator_a812a743312333bf6196b49e3d14904f6}\label{classsimulator_1_1Simulator_a812a743312333bf6196b49e3d14904f6}} 
-\index{simulator::Simulator@{simulator::Simulator}!openGlRenderUpdateFrameRate@{openGlRenderUpdateFrameRate}}
-\index{openGlRenderUpdateFrameRate@{openGlRenderUpdateFrameRate}!simulator::Simulator@{simulator::Simulator}}
-\doxysubsubsection{\texorpdfstring{openGlRenderUpdateFrameRate}{openGlRenderUpdateFrameRate}}
-{\footnotesize\ttfamily int simulator\+::\+Simulator\+::open\+Gl\+Render\+Update\+Frame\+Rate}
-
-Frame rate for Open\+GL rendering updates. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

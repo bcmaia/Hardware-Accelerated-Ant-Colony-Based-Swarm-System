@@ -1,0 +1,94 @@
+\hypertarget{classswarm_1_1AntSensor}{}\doxysection{swarm\+::Ant\+Sensor Class Reference}
+\label{classswarm_1_1AntSensor}\index{swarm::AntSensor@{swarm::AntSensor}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classswarm_1_1AntSensor_aff47c64b72bd27d8d71c4131eb13e6f4}{Ant\+Sensor}} (const int id, const \mbox{\hyperlink{structAntSensorParameters}{Ant\+Sensor\+Parameters}} $\ast$ant\+Sensor\+Parameters)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classswarm_1_1AntSensor_a88b6d1462b83d0d0f0ce8194859571ce}{detect\+Pheromone}} (const uint8\+\_\+t $\ast$pheromone\+Matrix, const Pheromone\+Type pheromone\+Type)
+\begin{DoxyCompactList}\small\item\em Detects pheromones in the environment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classswarm_1_1AntSensor_a7a339c334ff2ecb28512d66994147c04}{move}} (float ant\+PosX, float ant\+Posy, float theta)
+\begin{DoxyCompactList}\small\item\em Moves the \mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} object to a new position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classswarm_1_1AntSensor_aff47c64b72bd27d8d71c4131eb13e6f4}\label{classswarm_1_1AntSensor_aff47c64b72bd27d8d71c4131eb13e6f4}} 
+\index{swarm::AntSensor@{swarm::AntSensor}!AntSensor@{AntSensor}}
+\index{AntSensor@{AntSensor}!swarm::AntSensor@{swarm::AntSensor}}
+\doxysubsubsection{\texorpdfstring{AntSensor()}{AntSensor()}}
+{\footnotesize\ttfamily swarm\+::\+Ant\+Sensor\+::\+Ant\+Sensor (\begin{DoxyParamCaption}\item[{const int}]{new\+Id,  }\item[{const \mbox{\hyperlink{structAntSensorParameters}{Ant\+Sensor\+Parameters}} $\ast$}]{ant\+Sensor\+Parameters }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Id} & The ID of the \mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} object. \\
+\hline
+{\em ant\+Sensor\+Parameters} & The parameters for the \mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} object. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if ant\+Sensor\+Parameters is null and the code is not in RELEASE mode. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classswarm_1_1AntSensor_a88b6d1462b83d0d0f0ce8194859571ce}\label{classswarm_1_1AntSensor_a88b6d1462b83d0d0f0ce8194859571ce}} 
+\index{swarm::AntSensor@{swarm::AntSensor}!detectPheromone@{detectPheromone}}
+\index{detectPheromone@{detectPheromone}!swarm::AntSensor@{swarm::AntSensor}}
+\doxysubsubsection{\texorpdfstring{detectPheromone()}{detectPheromone()}}
+{\footnotesize\ttfamily int swarm\+::\+Ant\+Sensor\+::detect\+Pheromone (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{pheromone\+Matrix,  }\item[{const Pheromone\+Type}]{pheromone\+Type }\end{DoxyParamCaption})}
+
+
+
+Detects pheromones in the environment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pheromone\+Matrix} & The matrix containing pheromone information. \\
+\hline
+{\em pheromone\+Type} & The type of pheromone to detect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of pheromone detected. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if the \mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} object is not in a valid state and the code is not in RELEASE mode. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classswarm_1_1AntSensor_a7a339c334ff2ecb28512d66994147c04}\label{classswarm_1_1AntSensor_a7a339c334ff2ecb28512d66994147c04}} 
+\index{swarm::AntSensor@{swarm::AntSensor}!move@{move}}
+\index{move@{move}!swarm::AntSensor@{swarm::AntSensor}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void swarm\+::\+Ant\+Sensor\+::move (\begin{DoxyParamCaption}\item[{float}]{ant\+PosX,  }\item[{float}]{ant\+PosY,  }\item[{float}]{theta }\end{DoxyParamCaption})}
+
+
+
+Moves the \mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} object to a new position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ant\+PosX} & The X coordinate of the \mbox{\hyperlink{classswarm_1_1Ant}{Ant}} object. \\
+\hline
+{\em ant\+PosY} & The Y coordinate of the \mbox{\hyperlink{classswarm_1_1Ant}{Ant}} object. \\
+\hline
+{\em theta} & The angle of the \mbox{\hyperlink{classswarm_1_1Ant}{Ant}} object. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if the \mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} object is not in a valid state and the code is not in RELEASE mode. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/swarm\+Environment/\mbox{\hyperlink{antSensor_8h}{ant\+Sensor.\+h}}\item 
+src/swarm\+Environment/ant\+Sensor.\+cpp\end{DoxyCompactItemize}

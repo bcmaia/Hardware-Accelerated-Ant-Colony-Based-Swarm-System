@@ -1,0 +1,223 @@
+\hypertarget{classswarm_1_1Ant}{}\doxysection{swarm\+::Ant Class Reference}
+\label{classswarm_1_1Ant}\index{swarm::Ant@{swarm::Ant}}
+
+
+Collaboration diagram for swarm\+::Ant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classswarm_1_1Ant__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classswarm_1_1Ant_aa143b63584d7ece10914d8eaf053381f}{Ant}} (int id, float posX, float posY, \mbox{\hyperlink{structAntParameters}{Ant\+Parameters}} $\ast$ant\+Parameters)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classswarm_1_1Ant}{Ant}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classswarm_1_1Ant_ad513e3c033f48401d3d1fb705a88199e}{environment\+Analysis}} (int view\+Frequency, uint8\+\_\+t $\ast$pheromone\+Matrix, vector$<$ \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} $\ast$ $>$ ant\+Colonies, vector$<$ \mbox{\hyperlink{classswarm_1_1FoodSource}{Food\+Source}} $\ast$ $>$ food\+Sources)
+\begin{DoxyCompactList}\small\item\em Analyzes the environment for the ant. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classswarm_1_1Ant_a96950d03d5ad32cf2baf6dd90ab36cdd}{nest\+Colision}} (vector$<$ \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} $\ast$ $>$ ant\+Colonies)
+\begin{DoxyCompactList}\small\item\em Checks for collision with anthills. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classswarm_1_1Ant_ae1df5bb7ab3f01643b54ee8252c0b64d}{food\+Colision}} (vector$<$ \mbox{\hyperlink{classswarm_1_1FoodSource}{Food\+Source}} $\ast$ $>$ food\+Sources)
+\begin{DoxyCompactList}\small\item\em Checks for collision with food sources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classswarm_1_1Ant_a5473ca31e6a05de6d46d4a2c23879753}{change\+State}} (Ant\+States new\+State)
+\begin{DoxyCompactList}\small\item\em Changes the state of the ant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classswarm_1_1Ant_aec2bc9b2160a5e849228486b6ca7b0bc}{make\+Decision}} (vector$<$ \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} $\ast$ $>$ ant\+Colonies, vector$<$ \mbox{\hyperlink{classswarm_1_1FoodSource}{Food\+Source}} $\ast$ $>$ food\+Sources, int lR, int lG, int lB, int rR, int rG, int rB)
+\begin{DoxyCompactList}\small\item\em Makes a decision for the ant based on its current state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classswarm_1_1Ant_aece88194017439e9e88aab67e431a341}{move}} (int l)
+\begin{DoxyCompactList}\small\item\em Moves the ant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_aa5c93ce4ac3b3202484873b50fac8216}\label{classswarm_1_1Ant_aa5c93ce4ac3b3202484873b50fac8216}} 
+float {\bfseries get\+\_\+size} (void) const
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_ae6ea1ed91344380d255747eaf9c07fca}\label{classswarm_1_1Ant_ae6ea1ed91344380d255747eaf9c07fca}} 
+float {\bfseries get\+\_\+posX} (void) const
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_afeafe899468a8485e444431a0651d9f6}\label{classswarm_1_1Ant_afeafe899468a8485e444431a0651d9f6}} 
+float {\bfseries get\+\_\+posY} (void) const
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a3e835c85073d190b1d9cde047a610fed}\label{classswarm_1_1Ant_a3e835c85073d190b1d9cde047a610fed}} 
+float {\bfseries get\+\_\+theta} (void) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a3b3d4ce32a0e0e7b0959f6fa31ae4c32}\label{classswarm_1_1Ant_a3b3d4ce32a0e0e7b0959f6fa31ae4c32}} 
+Ant\+States {\bfseries state}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a1d5e1277022db31643af21feeed17e66}\label{classswarm_1_1Ant_a1d5e1277022db31643af21feeed17e66}} 
+int {\bfseries pheromone\+Type}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a8e5763adce11d142fba57252a52e9932}\label{classswarm_1_1Ant_a8e5763adce11d142fba57252a52e9932}} 
+int {\bfseries place\+Pheromone\+Intensity}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a51225e0659c3556e39fc1d0e405a2cec}\label{classswarm_1_1Ant_a51225e0659c3556e39fc1d0e405a2cec}} 
+int {\bfseries life\+Time}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a91f40b9fa7dfa23136cc1cfd78e1cd7b}\label{classswarm_1_1Ant_a91f40b9fa7dfa23136cc1cfd78e1cd7b}} 
+int {\bfseries view\+Frequency}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a322deaa2115ffc3b10997dd9900ee5c0}\label{classswarm_1_1Ant_a322deaa2115ffc3b10997dd9900ee5c0}} 
+\mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} {\bfseries pheromone\+SensorR}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_ad27bb79b31e46696bfc780e60de01eb8}\label{classswarm_1_1Ant_ad27bb79b31e46696bfc780e60de01eb8}} 
+\mbox{\hyperlink{classswarm_1_1AntSensor}{Ant\+Sensor}} {\bfseries pheromone\+SensorL}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a8c811333c6c63cd5b485ab564e8ac8ad}\label{classswarm_1_1Ant_a8c811333c6c63cd5b485ab564e8ac8ad}} 
+bool {\bfseries found\+Nest}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_a009bb4a26909dc54c95d61dba643a499}\label{classswarm_1_1Ant_a009bb4a26909dc54c95d61dba643a499}} 
+bool {\bfseries found\+Food}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Ant_af80d2406048a74cb802dc73d6d1e23ef}\label{classswarm_1_1Ant_af80d2406048a74cb802dc73d6d1e23ef}} 
+bool {\bfseries carrying\+Food}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classswarm_1_1Ant_aa143b63584d7ece10914d8eaf053381f}\label{classswarm_1_1Ant_aa143b63584d7ece10914d8eaf053381f}} 
+\index{swarm::Ant@{swarm::Ant}!Ant@{Ant}}
+\index{Ant@{Ant}!swarm::Ant@{swarm::Ant}}
+\doxysubsubsection{\texorpdfstring{Ant()}{Ant()}}
+{\footnotesize\ttfamily swarm\+::\+Ant\+::\+Ant (\begin{DoxyParamCaption}\item[{int}]{new\+Id,  }\item[{float}]{new\+PosX,  }\item[{float}]{new\+PosY,  }\item[{\mbox{\hyperlink{structAntParameters}{Ant\+Parameters}} $\ast$}]{ant\+Parameters }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classswarm_1_1Ant}{Ant}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Id} & The ID of the ant. \\
+\hline
+{\em new\+PosX} & The initial X position of the ant. \\
+\hline
+{\em new\+PosY} & The initial Y position of the ant. \\
+\hline
+{\em ant\+Parameters} & The parameters for the ant. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classswarm_1_1Ant_a5473ca31e6a05de6d46d4a2c23879753}\label{classswarm_1_1Ant_a5473ca31e6a05de6d46d4a2c23879753}} 
+\index{swarm::Ant@{swarm::Ant}!changeState@{changeState}}
+\index{changeState@{changeState}!swarm::Ant@{swarm::Ant}}
+\doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
+{\footnotesize\ttfamily void swarm\+::\+Ant\+::change\+State (\begin{DoxyParamCaption}\item[{Ant\+States}]{new\+State }\end{DoxyParamCaption})}
+
+
+
+Changes the state of the ant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+State} & The new state of the ant. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classswarm_1_1Ant_ad513e3c033f48401d3d1fb705a88199e}\label{classswarm_1_1Ant_ad513e3c033f48401d3d1fb705a88199e}} 
+\index{swarm::Ant@{swarm::Ant}!environmentAnalysis@{environmentAnalysis}}
+\index{environmentAnalysis@{environmentAnalysis}!swarm::Ant@{swarm::Ant}}
+\doxysubsubsection{\texorpdfstring{environmentAnalysis()}{environmentAnalysis()}}
+{\footnotesize\ttfamily void swarm\+::\+Ant\+::environment\+Analysis (\begin{DoxyParamCaption}\item[{int}]{frame\+Counter,  }\item[{uint8\+\_\+t $\ast$}]{pheromone\+Matrix,  }\item[{vector$<$ \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} $\ast$ $>$}]{ant\+Colonies,  }\item[{vector$<$ \mbox{\hyperlink{classswarm_1_1FoodSource}{Food\+Source}} $\ast$ $>$}]{food\+Sources }\end{DoxyParamCaption})}
+
+
+
+Analyzes the environment for the ant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+Counter} & The current frame counter. \\
+\hline
+{\em pheromone\+Matrix} & The pheromone matrix. \\
+\hline
+{\em ant\+Colonies} & The ant colonies. \\
+\hline
+{\em food\+Sources} & The food sources. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classswarm_1_1Ant_ae1df5bb7ab3f01643b54ee8252c0b64d}\label{classswarm_1_1Ant_ae1df5bb7ab3f01643b54ee8252c0b64d}} 
+\index{swarm::Ant@{swarm::Ant}!foodColision@{foodColision}}
+\index{foodColision@{foodColision}!swarm::Ant@{swarm::Ant}}
+\doxysubsubsection{\texorpdfstring{foodColision()}{foodColision()}}
+{\footnotesize\ttfamily bool swarm\+::\+Ant\+::food\+Colision (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classswarm_1_1FoodSource}{Food\+Source}} $\ast$ $>$}]{food\+Sources }\end{DoxyParamCaption})}
+
+
+
+Checks for collision with food sources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em food\+Sources} & The food sources. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is a collision with a food source, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classswarm_1_1Ant_aec2bc9b2160a5e849228486b6ca7b0bc}\label{classswarm_1_1Ant_aec2bc9b2160a5e849228486b6ca7b0bc}} 
+\index{swarm::Ant@{swarm::Ant}!makeDecision@{makeDecision}}
+\index{makeDecision@{makeDecision}!swarm::Ant@{swarm::Ant}}
+\doxysubsubsection{\texorpdfstring{makeDecision()}{makeDecision()}}
+{\footnotesize\ttfamily void swarm\+::\+Ant\+::make\+Decision (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} $\ast$ $>$}]{ant\+Colonies,  }\item[{vector$<$ \mbox{\hyperlink{classswarm_1_1FoodSource}{Food\+Source}} $\ast$ $>$}]{food\+Sources,  }\item[{int}]{lR,  }\item[{int}]{lG,  }\item[{int}]{lB,  }\item[{int}]{rR,  }\item[{int}]{rG,  }\item[{int}]{rB }\end{DoxyParamCaption})}
+
+
+
+Makes a decision for the ant based on its current state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ant\+Colonies} & The ant colonies. \\
+\hline
+{\em food\+Sources} & The food sources. \\
+\hline
+{\em lR} & The red pheromone level detected by the left sensor. \\
+\hline
+{\em lG} & The green pheromone level detected by the left sensor. \\
+\hline
+{\em lB} & The blue pheromone level detected by the left sensor. \\
+\hline
+{\em rR} & The red pheromone level detected by the right sensor. \\
+\hline
+{\em rG} & The green pheromone level detected by the right sensor. \\
+\hline
+{\em rB} & The blue pheromone level detected by the right sensor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classswarm_1_1Ant_aece88194017439e9e88aab67e431a341}\label{classswarm_1_1Ant_aece88194017439e9e88aab67e431a341}} 
+\index{swarm::Ant@{swarm::Ant}!move@{move}}
+\index{move@{move}!swarm::Ant@{swarm::Ant}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void swarm\+::\+Ant\+::move (\begin{DoxyParamCaption}\item[{int}]{l }\end{DoxyParamCaption})}
+
+
+
+Moves the ant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The length of the movement. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classswarm_1_1Ant_a96950d03d5ad32cf2baf6dd90ab36cdd}\label{classswarm_1_1Ant_a96950d03d5ad32cf2baf6dd90ab36cdd}} 
+\index{swarm::Ant@{swarm::Ant}!nestColision@{nestColision}}
+\index{nestColision@{nestColision}!swarm::Ant@{swarm::Ant}}
+\doxysubsubsection{\texorpdfstring{nestColision()}{nestColision()}}
+{\footnotesize\ttfamily bool swarm\+::\+Ant\+::nest\+Colision (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} $\ast$ $>$}]{ant\+Colonies }\end{DoxyParamCaption})}
+
+
+
+Checks for collision with anthills. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ant\+Colonies} & The ant colonies. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is a collision with an anthill, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/swarm\+Environment/ant.\+h\item 
+src/swarm\+Environment/ant.\+cpp\end{DoxyCompactItemize}

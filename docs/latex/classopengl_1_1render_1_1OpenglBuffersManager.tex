@@ -1,0 +1,354 @@
+\hypertarget{classopengl_1_1render_1_1OpenglBuffersManager}{}\doxysection{opengl\+::render\+::Opengl\+Buffers\+Manager Class Reference}
+\label{classopengl_1_1render_1_1OpenglBuffersManager}\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+
+
+Class responsible for managing Open\+GL buffers and rendering objects.  
+
+
+
+
+{\ttfamily \#include $<$opengl\+Buffers\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for opengl\+::render\+::Opengl\+Buffers\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classopengl_1_1render_1_1OpenglBuffersManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a15b5f39322e481bc453af114f81ff282}\label{classopengl_1_1render_1_1OpenglBuffersManager_a15b5f39322e481bc453af114f81ff282}} 
+\mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a15b5f39322e481bc453af114f81ff282}{Opengl\+Buffers\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager}{Opengl\+Buffers\+Manager}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a82bbc5c2efd8c7182c03fbdf685e6cb4}\label{classopengl_1_1render_1_1OpenglBuffersManager_a82bbc5c2efd8c7182c03fbdf685e6cb4}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a82bbc5c2efd8c7182c03fbdf685e6cb4}{reset\+Buffer\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Resets the buffer manager to its initial state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_ad5963c5f30baaa16c7fdf06cd2aecdbd}{add\+Element}} (vector$<$ glm\+::mat4 $>$ $\ast$transformation\+Matrices, float size, float theta, float posX, float posY)
+\begin{DoxyCompactList}\small\item\em Adds an element to the specified transformation matrices vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a59509c3ca516d54ecb74884c7a88e4b5}{update\+Buffer}} (\mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} $\ast$vertex\+Buffer\+Object, int number\+Of\+Elements, vector$<$ glm\+::mat4 $>$ transformation\+Matrices, GLenum usage)
+\begin{DoxyCompactList}\small\item\em Updates the specified vertex buffer object with the given transformation matrices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a4cb598103b08968d1db3acb1395744f0}{update\+Buffer\+Data}} (\mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} $\ast$vertex\+Buffer\+Object, int number\+Of\+Elements, vector$<$ glm\+::mat4 $>$ transformation\+Matrices)
+\begin{DoxyCompactList}\small\item\em Updates the data of the specified vertex buffer object with the given transformation matrices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a1e409b3c028589056cd213318f77a754}\label{classopengl_1_1render_1_1OpenglBuffersManager_a1e409b3c028589056cd213318f77a754}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a1e409b3c028589056cd213318f77a754}{create\+Food\+Components}} ()
+\begin{DoxyCompactList}\small\item\em Creates the components required for rendering food objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a320db6fff4c249be35f30a3814c3f9c3}{draw\+Foods}} (int number\+Of\+Foods, \mbox{\hyperlink{classCamera}{Camera}} $\ast$camera)
+\begin{DoxyCompactList}\small\item\em Draws the specified number of food objects using the given camera. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_ac85cd9db1d2090cff39cb55ba81e93c1}\label{classopengl_1_1render_1_1OpenglBuffersManager_ac85cd9db1d2090cff39cb55ba81e93c1}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_ac85cd9db1d2090cff39cb55ba81e93c1}{create\+Anthill\+Components}} ()
+\begin{DoxyCompactList}\small\item\em Creates the components required for rendering anthill objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a80d14ad5f091f728dd76e8d6c12a2f2d}{draw\+Anthills}} (int number\+Of\+Anthills, \mbox{\hyperlink{classCamera}{Camera}} $\ast$camera)
+\begin{DoxyCompactList}\small\item\em Draws the specified number of anthill objects using the given camera. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a0e2be5468a4fe05fc30f8971570f097b}\label{classopengl_1_1render_1_1OpenglBuffersManager_a0e2be5468a4fe05fc30f8971570f097b}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a0e2be5468a4fe05fc30f8971570f097b}{create\+Ant\+Components}} ()
+\begin{DoxyCompactList}\small\item\em Creates the components required for rendering ant objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_ab7aff290c30846403bce659c3cb989db}{draw\+Ants}} (int number\+Of\+Ants, \mbox{\hyperlink{classCamera}{Camera}} $\ast$camera)
+\begin{DoxyCompactList}\small\item\em Draws the specified number of ant objects using the given camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_addea21b21646faddb2b60d822dedf680}{update\+Model\+Ants}} (int number\+Of\+Ants, vector$<$ \mbox{\hyperlink{classswarm_1_1Ant}{swarm\+::\+Ant}} $\ast$ $>$ ants)
+\begin{DoxyCompactList}\small\item\em Updates the model of the specified number of ant objects with the given ants vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a5e25bb755d6aab9fa4ddd02d89d3b42d}\label{classopengl_1_1render_1_1OpenglBuffersManager_a5e25bb755d6aab9fa4ddd02d89d3b42d}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a5e25bb755d6aab9fa4ddd02d89d3b42d}{create\+Pheromone\+Components}} ()
+\begin{DoxyCompactList}\small\item\em Creates the components required for rendering pheromone objects. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a8e4854a9dead353d08d8f0ef052da985}\label{classopengl_1_1render_1_1OpenglBuffersManager_a8e4854a9dead353d08d8f0ef052da985}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a8e4854a9dead353d08d8f0ef052da985}{create\+Texture\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Creates the texture buffer for storing pheromone data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a3c5b0233bc2da21edfd251e6691e1bdb}\label{classopengl_1_1render_1_1OpenglBuffersManager_a3c5b0233bc2da21edfd251e6691e1bdb}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a3c5b0233bc2da21edfd251e6691e1bdb}{create\+Pixel\+Buffers}} ()
+\begin{DoxyCompactList}\small\item\em Creates the pixel buffers for storing pheromone data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_afd963a8dc85709272571cc55fc98fe93}{swap\+Pixel\+Buffers}} (uint8\+\_\+t $\ast$pheromone\+Matrix)
+\begin{DoxyCompactList}\small\item\em Swaps the pixel buffers and updates the pheromone matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a9b4b8fd514f8d6cbbda1cbe8769244f6}{draw\+Pheromone}} (uint8\+\_\+t $\ast$pheromone\+Matrix, \mbox{\hyperlink{classCamera}{Camera}} $\ast$camera)
+\begin{DoxyCompactList}\small\item\em Draws the pheromone objects using the given pheromone matrix and camera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1Shader}{Shader}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_af977da77488e09344892e57ee8f2f7bc}{shader\+Ants}}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1Shader}{Shader}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a73c670c5cb573ebb6087ec2e4a126c9e}{shader\+Pheromone}}
+\item 
+vector$<$ glm\+::mat4 $>$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_abeb881ad8c7db63f61067326c7e7999a}{foods\+Transformation\+Matrices}}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_ac85b8ea07f28019a320516c9049c8ede}{foods\+Transformation\+Matrices\+VBO}}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a6e8eb41d6f2eadfb0cc5dcf963e0fb2d}{foods\+VAO}}
+\item 
+vector$<$ glm\+::mat4 $>$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_aae8932364181016f15ff93db9beef175}{anthills\+Transformation\+Matrices}}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a2840158c16d47619eeeec27eb5df8d3c}{anthills\+Transformation\+Matrices\+VBO}}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_ae8167b5ce12d42f507f34f1f59f8941a}{anthills\+VAO}}
+\item 
+vector$<$ glm\+::mat4 $>$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a7696b01dc9784ac7891f9694a09f5326}{ants\+Transformation\+Matrices}}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a126d969b0b054722d38cafdf88446249}{ants\+Transformation\+Matrices\+VBO}}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a10469c68a999bfbf98e0c186ad41ef21}{ants\+VAO}}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}} $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a1351ef2d43a4ccc0d30c3c8124802c04}{pheromone\+VAO}}
+\item 
+GLbitfield $\ast$ \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager_a556800af8c3b53839617e7b02a247bf1}{pixel\+Map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class responsible for managing Open\+GL buffers and rendering objects. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_ad5963c5f30baaa16c7fdf06cd2aecdbd}\label{classopengl_1_1render_1_1OpenglBuffersManager_ad5963c5f30baaa16c7fdf06cd2aecdbd}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!addElement@{addElement}}
+\index{addElement@{addElement}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{addElement()}{addElement()}}
+{\footnotesize\ttfamily void Opengl\+Buffers\+Manager\+::add\+Element (\begin{DoxyParamCaption}\item[{vector$<$ glm\+::mat4 $>$ $\ast$}]{transformation\+Matrices,  }\item[{float}]{size,  }\item[{float}]{theta,  }\item[{float}]{posX,  }\item[{float}]{posY }\end{DoxyParamCaption})}
+
+
+
+Adds an element to the specified transformation matrices vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transformation\+Matrices} & The transformation matrices vector. \\
+\hline
+{\em size} & The size of the element. \\
+\hline
+{\em theta} & The rotation angle of the element. \\
+\hline
+{\em posX} & The X position of the element. \\
+\hline
+{\em posY} & The Y position of the element. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a80d14ad5f091f728dd76e8d6c12a2f2d}\label{classopengl_1_1render_1_1OpenglBuffersManager_a80d14ad5f091f728dd76e8d6c12a2f2d}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!drawAnthills@{drawAnthills}}
+\index{drawAnthills@{drawAnthills}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{drawAnthills()}{drawAnthills()}}
+{\footnotesize\ttfamily void Opengl\+Buffers\+Manager\+::draw\+Anthills (\begin{DoxyParamCaption}\item[{int}]{number\+Of\+Anthills,  }\item[{\mbox{\hyperlink{classCamera}{Camera}} $\ast$}]{camera }\end{DoxyParamCaption})}
+
+
+
+Draws the specified number of anthill objects using the given camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Of\+Anthills} & The number of anthill objects to draw. \\
+\hline
+{\em camera} & The camera to use for rendering. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_ab7aff290c30846403bce659c3cb989db}\label{classopengl_1_1render_1_1OpenglBuffersManager_ab7aff290c30846403bce659c3cb989db}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!drawAnts@{drawAnts}}
+\index{drawAnts@{drawAnts}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{drawAnts()}{drawAnts()}}
+{\footnotesize\ttfamily void opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::draw\+Ants (\begin{DoxyParamCaption}\item[{int}]{number\+Of\+Ants,  }\item[{\mbox{\hyperlink{classCamera}{Camera}} $\ast$}]{camera }\end{DoxyParamCaption})}
+
+
+
+Draws the specified number of ant objects using the given camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Of\+Ants} & The number of ant objects to draw. \\
+\hline
+{\em camera} & The camera to use for rendering. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a320db6fff4c249be35f30a3814c3f9c3}\label{classopengl_1_1render_1_1OpenglBuffersManager_a320db6fff4c249be35f30a3814c3f9c3}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!drawFoods@{drawFoods}}
+\index{drawFoods@{drawFoods}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{drawFoods()}{drawFoods()}}
+{\footnotesize\ttfamily void Opengl\+Buffers\+Manager\+::draw\+Foods (\begin{DoxyParamCaption}\item[{int}]{number\+Of\+Foods,  }\item[{\mbox{\hyperlink{classCamera}{Camera}} $\ast$}]{camera }\end{DoxyParamCaption})}
+
+
+
+Draws the specified number of food objects using the given camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Of\+Foods} & The number of food objects to draw. \\
+\hline
+{\em camera} & The camera to use for rendering. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a9b4b8fd514f8d6cbbda1cbe8769244f6}\label{classopengl_1_1render_1_1OpenglBuffersManager_a9b4b8fd514f8d6cbbda1cbe8769244f6}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!drawPheromone@{drawPheromone}}
+\index{drawPheromone@{drawPheromone}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{drawPheromone()}{drawPheromone()}}
+{\footnotesize\ttfamily void Opengl\+Buffers\+Manager\+::draw\+Pheromone (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{pheromone\+Matrix,  }\item[{\mbox{\hyperlink{classCamera}{Camera}} $\ast$}]{camera }\end{DoxyParamCaption})}
+
+
+
+Draws the pheromone objects using the given pheromone matrix and camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pheromone\+Matrix} & The pheromone matrix to use for rendering. \\
+\hline
+{\em camera} & The camera to use for rendering. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_afd963a8dc85709272571cc55fc98fe93}\label{classopengl_1_1render_1_1OpenglBuffersManager_afd963a8dc85709272571cc55fc98fe93}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!swapPixelBuffers@{swapPixelBuffers}}
+\index{swapPixelBuffers@{swapPixelBuffers}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{swapPixelBuffers()}{swapPixelBuffers()}}
+{\footnotesize\ttfamily void Opengl\+Buffers\+Manager\+::swap\+Pixel\+Buffers (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{pheromone\+Matrix }\end{DoxyParamCaption})}
+
+
+
+Swaps the pixel buffers and updates the pheromone matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pheromone\+Matrix} & The pheromone matrix to update. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a59509c3ca516d54ecb74884c7a88e4b5}\label{classopengl_1_1render_1_1OpenglBuffersManager_a59509c3ca516d54ecb74884c7a88e4b5}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!updateBuffer@{updateBuffer}}
+\index{updateBuffer@{updateBuffer}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{updateBuffer()}{updateBuffer()}}
+{\footnotesize\ttfamily void Opengl\+Buffers\+Manager\+::update\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} $\ast$}]{vertex\+Buffer\+Object,  }\item[{int}]{number\+Of\+Elements,  }\item[{vector$<$ glm\+::mat4 $>$}]{transformation\+Matrices,  }\item[{GLenum}]{usage }\end{DoxyParamCaption})}
+
+
+
+Updates the specified vertex buffer object with the given transformation matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+Buffer\+Object} & The vertex buffer object to update. \\
+\hline
+{\em number\+Of\+Elements} & The number of elements in the transformation matrices vector. \\
+\hline
+{\em transformation\+Matrices} & The transformation matrices vector. \\
+\hline
+{\em usage} & The usage pattern of the vertex buffer object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a4cb598103b08968d1db3acb1395744f0}\label{classopengl_1_1render_1_1OpenglBuffersManager_a4cb598103b08968d1db3acb1395744f0}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!updateBufferData@{updateBufferData}}
+\index{updateBufferData@{updateBufferData}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{updateBufferData()}{updateBufferData()}}
+{\footnotesize\ttfamily void Opengl\+Buffers\+Manager\+::update\+Buffer\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} $\ast$}]{vertex\+Buffer\+Object,  }\item[{int}]{number\+Of\+Elements,  }\item[{vector$<$ glm\+::mat4 $>$}]{transformation\+Matrices }\end{DoxyParamCaption})}
+
+
+
+Updates the data of the specified vertex buffer object with the given transformation matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+Buffer\+Object} & The vertex buffer object to update. \\
+\hline
+{\em number\+Of\+Elements} & The number of elements in the transformation matrices vector. \\
+\hline
+{\em transformation\+Matrices} & The transformation matrices vector. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_addea21b21646faddb2b60d822dedf680}\label{classopengl_1_1render_1_1OpenglBuffersManager_addea21b21646faddb2b60d822dedf680}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!updateModelAnts@{updateModelAnts}}
+\index{updateModelAnts@{updateModelAnts}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{updateModelAnts()}{updateModelAnts()}}
+{\footnotesize\ttfamily void opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::update\+Model\+Ants (\begin{DoxyParamCaption}\item[{int}]{number\+Of\+Ants,  }\item[{vector$<$ \mbox{\hyperlink{classswarm_1_1Ant}{swarm\+::\+Ant}} $\ast$ $>$}]{ants }\end{DoxyParamCaption})}
+
+
+
+Updates the model of the specified number of ant objects with the given ants vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Of\+Ants} & The number of ant objects to update. \\
+\hline
+{\em ants} & The vector of ant objects. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_aae8932364181016f15ff93db9beef175}\label{classopengl_1_1render_1_1OpenglBuffersManager_aae8932364181016f15ff93db9beef175}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!anthillsTransformationMatrices@{anthillsTransformationMatrices}}
+\index{anthillsTransformationMatrices@{anthillsTransformationMatrices}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{anthillsTransformationMatrices}{anthillsTransformationMatrices}}
+{\footnotesize\ttfamily vector$<$glm\+::mat4$>$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::anthills\+Transformation\+Matrices}
+
+The transformation matrices for anthill objects. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a2840158c16d47619eeeec27eb5df8d3c}\label{classopengl_1_1render_1_1OpenglBuffersManager_a2840158c16d47619eeeec27eb5df8d3c}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!anthillsTransformationMatricesVBO@{anthillsTransformationMatricesVBO}}
+\index{anthillsTransformationMatricesVBO@{anthillsTransformationMatricesVBO}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{anthillsTransformationMatricesVBO}{anthillsTransformationMatricesVBO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::anthills\+Transformation\+Matrices\+VBO}
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} for anthill transformation matrices. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_ae8167b5ce12d42f507f34f1f59f8941a}\label{classopengl_1_1render_1_1OpenglBuffersManager_ae8167b5ce12d42f507f34f1f59f8941a}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!anthillsVAO@{anthillsVAO}}
+\index{anthillsVAO@{anthillsVAO}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{anthillsVAO}{anthillsVAO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::anthills\+VAO}
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}} for anthill objects. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a7696b01dc9784ac7891f9694a09f5326}\label{classopengl_1_1render_1_1OpenglBuffersManager_a7696b01dc9784ac7891f9694a09f5326}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!antsTransformationMatrices@{antsTransformationMatrices}}
+\index{antsTransformationMatrices@{antsTransformationMatrices}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{antsTransformationMatrices}{antsTransformationMatrices}}
+{\footnotesize\ttfamily vector$<$glm\+::mat4$>$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::ants\+Transformation\+Matrices}
+
+The transformation matrices for ant objects. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a126d969b0b054722d38cafdf88446249}\label{classopengl_1_1render_1_1OpenglBuffersManager_a126d969b0b054722d38cafdf88446249}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!antsTransformationMatricesVBO@{antsTransformationMatricesVBO}}
+\index{antsTransformationMatricesVBO@{antsTransformationMatricesVBO}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{antsTransformationMatricesVBO}{antsTransformationMatricesVBO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::ants\+Transformation\+Matrices\+VBO}
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} for ant transformation matrices. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a10469c68a999bfbf98e0c186ad41ef21}\label{classopengl_1_1render_1_1OpenglBuffersManager_a10469c68a999bfbf98e0c186ad41ef21}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!antsVAO@{antsVAO}}
+\index{antsVAO@{antsVAO}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{antsVAO}{antsVAO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::ants\+VAO}
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}} for ant objects. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_abeb881ad8c7db63f61067326c7e7999a}\label{classopengl_1_1render_1_1OpenglBuffersManager_abeb881ad8c7db63f61067326c7e7999a}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!foodsTransformationMatrices@{foodsTransformationMatrices}}
+\index{foodsTransformationMatrices@{foodsTransformationMatrices}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{foodsTransformationMatrices}{foodsTransformationMatrices}}
+{\footnotesize\ttfamily vector$<$glm\+::mat4$>$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::foods\+Transformation\+Matrices}
+
+The transformation matrices for food objects. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_ac85b8ea07f28019a320516c9049c8ede}\label{classopengl_1_1render_1_1OpenglBuffersManager_ac85b8ea07f28019a320516c9049c8ede}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!foodsTransformationMatricesVBO@{foodsTransformationMatricesVBO}}
+\index{foodsTransformationMatricesVBO@{foodsTransformationMatricesVBO}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{foodsTransformationMatricesVBO}{foodsTransformationMatricesVBO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::foods\+Transformation\+Matrices\+VBO}
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} for food transformation matrices. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a6e8eb41d6f2eadfb0cc5dcf963e0fb2d}\label{classopengl_1_1render_1_1OpenglBuffersManager_a6e8eb41d6f2eadfb0cc5dcf963e0fb2d}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!foodsVAO@{foodsVAO}}
+\index{foodsVAO@{foodsVAO}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{foodsVAO}{foodsVAO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::foods\+VAO}
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}} for food objects. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a1351ef2d43a4ccc0d30c3c8124802c04}\label{classopengl_1_1render_1_1OpenglBuffersManager_a1351ef2d43a4ccc0d30c3c8124802c04}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!pheromoneVAO@{pheromoneVAO}}
+\index{pheromoneVAO@{pheromoneVAO}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{pheromoneVAO}{pheromoneVAO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::pheromone\+VAO}
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1VAO}{VAO}} for pheromone objects. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a556800af8c3b53839617e7b02a247bf1}\label{classopengl_1_1render_1_1OpenglBuffersManager_a556800af8c3b53839617e7b02a247bf1}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!pixelMap@{pixelMap}}
+\index{pixelMap@{pixelMap}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{pixelMap}{pixelMap}}
+{\footnotesize\ttfamily GLbitfield$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::pixel\+Map}
+
+The pixel map for storing pheromone data. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_af977da77488e09344892e57ee8f2f7bc}\label{classopengl_1_1render_1_1OpenglBuffersManager_af977da77488e09344892e57ee8f2f7bc}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!shaderAnts@{shaderAnts}}
+\index{shaderAnts@{shaderAnts}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{shaderAnts}{shaderAnts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1Shader}{Shader}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::shader\+Ants}
+
+The shader for rendering ants. \mbox{\Hypertarget{classopengl_1_1render_1_1OpenglBuffersManager_a73c670c5cb573ebb6087ec2e4a126c9e}\label{classopengl_1_1render_1_1OpenglBuffersManager_a73c670c5cb573ebb6087ec2e4a126c9e}} 
+\index{opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}!shaderPheromone@{shaderPheromone}}
+\index{shaderPheromone@{shaderPheromone}!opengl::render::OpenglBuffersManager@{opengl::render::OpenglBuffersManager}}
+\doxysubsubsection{\texorpdfstring{shaderPheromone}{shaderPheromone}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classopengl_1_1render_1_1Shader}{Shader}}$\ast$ opengl\+::render\+::\+Opengl\+Buffers\+Manager\+::shader\+Pheromone}
+
+The shader for rendering pheromone. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/opengl/render/buffer\+Managers/\mbox{\hyperlink{openglBuffersManager_8h}{opengl\+Buffers\+Manager.\+h}}\item 
+src/opengl/render/buffer\+Managers/ant\+Buffer\+Manager.\+cpp\item 
+src/opengl/render/buffer\+Managers/anthill\+Buffer\+Manager.\+cpp\item 
+src/opengl/render/buffer\+Managers/food\+Buffer\+Manager.\+cpp\item 
+src/opengl/render/buffer\+Managers/opengl\+Buffers\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{classopengl_1_1render_1_1EBO}{}\doxysection{opengl\+::render\+::EBO Class Reference}
+\label{classopengl_1_1render_1_1EBO}\index{opengl::render::EBO@{opengl::render::EBO}}
+
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}} class represents an Elements Buffer Object in Open\+GL.  
+
+
+
+
+{\ttfamily \#include $<$EBO.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1EBO_a520f268fb3a418ae83b8cf94cb8ea9ea}{EBO}} (GLsizeiptr size, GLuint $\ast$indices)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}} and links it to the given indices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1EBO_a78ccf8e430636f201e28b5fea34a00ed}\label{classopengl_1_1render_1_1EBO_a78ccf8e430636f201e28b5fea34a00ed}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1EBO_a78ccf8e430636f201e28b5fea34a00ed}{bind}} ()
+\begin{DoxyCompactList}\small\item\em Binds the \mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1EBO_a0d1e102e77d72f98a0563266615ec32b}\label{classopengl_1_1render_1_1EBO_a0d1e102e77d72f98a0563266615ec32b}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1EBO_a0d1e102e77d72f98a0563266615ec32b}{unbind}} ()
+\begin{DoxyCompactList}\small\item\em Unbinds the \mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1EBO_af2d1a8e458b7a5c94cec1589afff71e9}\label{classopengl_1_1render_1_1EBO_af2d1a8e458b7a5c94cec1589afff71e9}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1EBO_af2d1a8e458b7a5c94cec1589afff71e9}{erase}} ()
+\begin{DoxyCompactList}\small\item\em Erases the \mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{classopengl_1_1render_1_1EBO_af8bd11e554fb3e15a6ba330830e45cd1}{ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}} class represents an Elements Buffer Object in Open\+GL. 
+
+An Elements Buffer Object (\mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}}) is used to store index data that specifies the order in which vertices should be rendered. This class provides methods to bind, unbind, and erase the \mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classopengl_1_1render_1_1EBO_a520f268fb3a418ae83b8cf94cb8ea9ea}\label{classopengl_1_1render_1_1EBO_a520f268fb3a418ae83b8cf94cb8ea9ea}} 
+\index{opengl::render::EBO@{opengl::render::EBO}!EBO@{EBO}}
+\index{EBO@{EBO}!opengl::render::EBO@{opengl::render::EBO}}
+\doxysubsubsection{\texorpdfstring{EBO()}{EBO()}}
+{\footnotesize\ttfamily opengl\+::render\+::\+EBO\+::\+EBO (\begin{DoxyParamCaption}\item[{GLsizeiptr}]{size,  }\item[{GLuint $\ast$}]{indices }\end{DoxyParamCaption})}
+
+
+
+Constructs an \mbox{\hyperlink{classopengl_1_1render_1_1EBO}{EBO}} and links it to the given indices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the indices array. \\
+\hline
+{\em indices} & A pointer to the indices array. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classopengl_1_1render_1_1EBO_af8bd11e554fb3e15a6ba330830e45cd1}\label{classopengl_1_1render_1_1EBO_af8bd11e554fb3e15a6ba330830e45cd1}} 
+\index{opengl::render::EBO@{opengl::render::EBO}!ID@{ID}}
+\index{ID@{ID}!opengl::render::EBO@{opengl::render::EBO}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily GLuint opengl\+::render\+::\+EBO\+::\+ID}
+
+ID reference of Elements Buffer Object 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/opengl/render/\mbox{\hyperlink{EBO_8h}{EBO.\+h}}\item 
+src/opengl/render/EBO.\+cpp\end{DoxyCompactItemize}

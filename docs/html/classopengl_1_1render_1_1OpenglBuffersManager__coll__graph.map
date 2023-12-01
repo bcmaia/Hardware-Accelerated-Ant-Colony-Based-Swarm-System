@@ -1,0 +1,6 @@
+<map id="opengl::render::OpenglBuffersManager" name="opengl::render::OpenglBuffersManager">
+<area shape="rect" id="node1" title="Class responsible for managing OpenGL buffers and rendering objects." alt="" coords="149,153,365,195"/>
+<area shape="rect" id="node2" href="$classopengl_1_1render_1_1VAO.html" title=" " alt="" coords="5,5,156,32"/>
+<area shape="rect" id="node3" href="$classopengl_1_1render_1_1VBO.html" title="The VBO class represents a Vertex Buffer Object in OpenGL." alt="" coords="181,5,333,32"/>
+<area shape="rect" id="node4" href="$classopengl_1_1render_1_1Shader.html" title="The Shader class represents an OpenGL shader program." alt="" coords="421,5,591,32"/>
+</map>

@@ -1,0 +1,107 @@
+\hypertarget{classopengl_1_1render_1_1VBO}{}\doxysection{opengl\+::render\+::VBO Class Reference}
+\label{classopengl_1_1render_1_1VBO}\index{opengl::render::VBO@{opengl::render::VBO}}
+
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} class represents a Vertex Buffer Object in Open\+GL.  
+
+
+
+
+{\ttfamily \#include $<$VBO.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classopengl_1_1render_1_1VBO_a73d588a73b69e6291f955c0d19ccc247}{VBO}} (GLsizeiptr size, void $\ast$data, GLenum usage)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} with the specified size, data, and usage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1VBO_a31ccd1afa18d0076b24ba82efe339cc1}{resize\+Buffer}} (GLsizeiptr size, void $\ast$data, GLenum usage)
+\begin{DoxyCompactList}\small\item\em Resizes the \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} with the specified size, data, and usage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1VBO_afe2d517a0fbba4c6de411e6ef8df244d}{sub\+Buffer\+Data}} (GLsizeiptr size, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Updates a portion of the \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} with the specified size and data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1VBO_adc87ed135037846c162fb5ca597a1768}\label{classopengl_1_1render_1_1VBO_adc87ed135037846c162fb5ca597a1768}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1VBO_adc87ed135037846c162fb5ca597a1768}{bind}} ()
+\begin{DoxyCompactList}\small\item\em Binds the \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} to the current Open\+GL context. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1VBO_ab52717c274af81e438a9af7aa5f4726f}\label{classopengl_1_1render_1_1VBO_ab52717c274af81e438a9af7aa5f4726f}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1VBO_ab52717c274af81e438a9af7aa5f4726f}{unbind}} ()
+\begin{DoxyCompactList}\small\item\em Unbinds the \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} from the current Open\+GL context. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1VBO_a8bb754d8a691bf8167886d1a3dc2b511}\label{classopengl_1_1render_1_1VBO_a8bb754d8a691bf8167886d1a3dc2b511}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1VBO_a8bb754d8a691bf8167886d1a3dc2b511}{erase}} ()
+\begin{DoxyCompactList}\small\item\em Erases the \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} from the GPU memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1VBO_a134516a37c6983af0cc294d1f795e711}\label{classopengl_1_1render_1_1VBO_a134516a37c6983af0cc294d1f795e711}} 
+GLuint {\bfseries ID}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} class represents a Vertex Buffer Object in Open\+GL. 
+
+A Vertex Buffer Object (\mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}}) is a buffer that stores vertex data on the GPU. This class provides methods to create, resize, update, bind, unbind, and erase a \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classopengl_1_1render_1_1VBO_a73d588a73b69e6291f955c0d19ccc247}\label{classopengl_1_1render_1_1VBO_a73d588a73b69e6291f955c0d19ccc247}} 
+\index{opengl::render::VBO@{opengl::render::VBO}!VBO@{VBO}}
+\index{VBO@{VBO}!opengl::render::VBO@{opengl::render::VBO}}
+\doxysubsubsection{\texorpdfstring{VBO()}{VBO()}}
+{\footnotesize\ttfamily opengl\+::render\+::\+VBO\+::\+VBO (\begin{DoxyParamCaption}\item[{GLsizeiptr}]{size,  }\item[{void $\ast$}]{data,  }\item[{GLenum}]{usage }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} with the specified size, data, and usage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the buffer in bytes. \\
+\hline
+{\em data} & A pointer to the data to be stored in the buffer. \\
+\hline
+{\em usage} & The usage pattern of the buffer (e.\+g., GL\+\_\+\+STATIC\+\_\+\+DRAW, GL\+\_\+\+DYNAMIC\+\_\+\+DRAW). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classopengl_1_1render_1_1VBO_a31ccd1afa18d0076b24ba82efe339cc1}\label{classopengl_1_1render_1_1VBO_a31ccd1afa18d0076b24ba82efe339cc1}} 
+\index{opengl::render::VBO@{opengl::render::VBO}!resizeBuffer@{resizeBuffer}}
+\index{resizeBuffer@{resizeBuffer}!opengl::render::VBO@{opengl::render::VBO}}
+\doxysubsubsection{\texorpdfstring{resizeBuffer()}{resizeBuffer()}}
+{\footnotesize\ttfamily void opengl\+::render\+::\+VBO\+::resize\+Buffer (\begin{DoxyParamCaption}\item[{GLsizeiptr}]{size,  }\item[{void $\ast$}]{data,  }\item[{GLenum}]{usage }\end{DoxyParamCaption})}
+
+
+
+Resizes the \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} with the specified size, data, and usage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The new size of the buffer in bytes. \\
+\hline
+{\em data} & A pointer to the new data to be stored in the buffer. \\
+\hline
+{\em usage} & The new usage pattern of the buffer (e.\+g., GL\+\_\+\+STATIC\+\_\+\+DRAW, GL\+\_\+\+DYNAMIC\+\_\+\+DRAW). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1VBO_afe2d517a0fbba4c6de411e6ef8df244d}\label{classopengl_1_1render_1_1VBO_afe2d517a0fbba4c6de411e6ef8df244d}} 
+\index{opengl::render::VBO@{opengl::render::VBO}!subBufferData@{subBufferData}}
+\index{subBufferData@{subBufferData}!opengl::render::VBO@{opengl::render::VBO}}
+\doxysubsubsection{\texorpdfstring{subBufferData()}{subBufferData()}}
+{\footnotesize\ttfamily void opengl\+::render\+::\+VBO\+::sub\+Buffer\+Data (\begin{DoxyParamCaption}\item[{GLsizeiptr}]{size,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Updates a portion of the \mbox{\hyperlink{classopengl_1_1render_1_1VBO}{VBO}} with the specified size and data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the data to be updated in bytes. \\
+\hline
+{\em data} & A pointer to the new data to be stored in the buffer. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/opengl/render/\mbox{\hyperlink{VBO_8h}{VBO.\+h}}\item 
+src/opengl/render/VBO.\+cpp\end{DoxyCompactItemize}

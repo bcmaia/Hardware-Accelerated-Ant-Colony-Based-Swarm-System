@@ -1,0 +1,61 @@
+\hypertarget{classswarm_1_1Anthill}{}\doxysection{swarm\+::Anthill Class Reference}
+\label{classswarm_1_1Anthill}\index{swarm::Anthill@{swarm::Anthill}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Anthill_acfbc8a7df6c8d83f2b427b0ee9707f3f}\label{classswarm_1_1Anthill_acfbc8a7df6c8d83f2b427b0ee9707f3f}} 
+float {\bfseries get\+\_\+size} (void) const noexcept
+\item 
+\mbox{\Hypertarget{classswarm_1_1Anthill_aa3f6135ca526822a110398dd817c4069}\label{classswarm_1_1Anthill_aa3f6135ca526822a110398dd817c4069}} 
+float {\bfseries get\+\_\+posX} (void) const noexcept
+\item 
+\mbox{\Hypertarget{classswarm_1_1Anthill_a03576c53bb97a41e78760c306d757c4b}\label{classswarm_1_1Anthill_a03576c53bb97a41e78760c306d757c4b}} 
+float {\bfseries get\+\_\+posY} (void) const noexcept
+\item 
+\mbox{\hyperlink{classswarm_1_1Anthill_ab7c8141032d57e19a3846757fb980e01}{Anthill}} (const \mbox{\hyperlink{structAnthillParameters}{Anthill\+Parameters}} $\ast$anthill\+Parameters)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classswarm_1_1Anthill_aae87ef227e387658a906b14a2a37b5f9}{ant\+Colision}} (const float ant\+Posx, const float ant\+PosY)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classswarm_1_1Anthill_ab7c8141032d57e19a3846757fb980e01}\label{classswarm_1_1Anthill_ab7c8141032d57e19a3846757fb980e01}} 
+\index{swarm::Anthill@{swarm::Anthill}!Anthill@{Anthill}}
+\index{Anthill@{Anthill}!swarm::Anthill@{swarm::Anthill}}
+\doxysubsubsection{\texorpdfstring{Anthill()}{Anthill()}}
+{\footnotesize\ttfamily swarm\+::\+Anthill\+::\+Anthill (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAnthillParameters}{Anthill\+Parameters}} $\ast$}]{anthill\+Parameters }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em anthill\+Parameters} & Pointer to \mbox{\hyperlink{structAnthillParameters}{Anthill\+Parameters}} object containing the parameters for the anthill. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classswarm_1_1Anthill_aae87ef227e387658a906b14a2a37b5f9}\label{classswarm_1_1Anthill_aae87ef227e387658a906b14a2a37b5f9}} 
+\index{swarm::Anthill@{swarm::Anthill}!antColision@{antColision}}
+\index{antColision@{antColision}!swarm::Anthill@{swarm::Anthill}}
+\doxysubsubsection{\texorpdfstring{antColision()}{antColision()}}
+{\footnotesize\ttfamily bool swarm\+::\+Anthill\+::ant\+Colision (\begin{DoxyParamCaption}\item[{const float}]{ant\+Posx,  }\item[{const float}]{ant\+PosY }\end{DoxyParamCaption})}
+
+Checks if a given point (ant\+Posx, ant\+PosY) is within the boundaries of the anthill. 
+\begin{DoxyParams}{Parameters}
+{\em ant\+Posx} & The x-\/coordinate of the point to check. \\
+\hline
+{\em ant\+PosY} & The y-\/coordinate of the point to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the point is within the anthill, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/swarm\+Environment/anthill.\+h\item 
+src/swarm\+Environment/anthill.\+cpp\end{DoxyCompactItemize}

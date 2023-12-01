@@ -1,0 +1,5 @@
+<map id="simulator::AdditionalCallbackParameters" name="simulator::AdditionalCallbackParameters">
+<area shape="rect" id="node1" title="Additional parameters to be passed to GLFW callback functions." alt="" coords="5,95,220,136"/>
+<area shape="rect" id="node2" href="$classUI.html" title=" " alt="" coords="33,5,72,32"/>
+<area shape="rect" id="node3" href="$classCamera.html" title=" " alt="" coords="137,5,211,32"/>
+</map>

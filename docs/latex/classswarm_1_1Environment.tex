@@ -1,0 +1,99 @@
+\hypertarget{classswarm_1_1Environment}{}\doxysection{swarm\+::Environment Class Reference}
+\label{classswarm_1_1Environment}\index{swarm::Environment@{swarm::Environment}}
+
+
+Manages the environment and defines/stores some parameters.  
+
+
+
+
+{\ttfamily \#include $<$environment.\+h$>$}
+
+
+
+Collaboration diagram for swarm\+::Environment\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{classswarm_1_1Environment__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a204631c123771993d12977e7820f1b77}\label{classswarm_1_1Environment_a204631c123771993d12977e7820f1b77}} 
+{\bfseries Environment} (\mbox{\hyperlink{classParameterAssigner}{Parameter\+Assigner}} $\ast$parameters\+Assigner)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a6d2776302e72ba39607bf8a38e4fae38}\label{classswarm_1_1Environment_a6d2776302e72ba39607bf8a38e4fae38}} 
+void {\bfseries initialize\+Environment} (\mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager}{Opengl\+Buffers\+Manager}} $\ast$opengl\+Buffers\+Manager)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a24c0b5d3c78d3e0920e840ccc36047c2}\label{classswarm_1_1Environment_a24c0b5d3c78d3e0920e840ccc36047c2}} 
+void {\bfseries reset\+Environment} ()
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a4e1f8740edd884beb91965ea1ef1020b}\label{classswarm_1_1Environment_a4e1f8740edd884beb91965ea1ef1020b}} 
+void {\bfseries create\+Nest} (int id\+Nest, \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager}{Opengl\+Buffers\+Manager}} $\ast$opengl\+Buffers\+Manager)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a45a442eab55d0c421af50d66c4b81b39}\label{classswarm_1_1Environment_a45a442eab55d0c421af50d66c4b81b39}} 
+void {\bfseries create\+Food\+Source} (int id\+Food, \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager}{Opengl\+Buffers\+Manager}} $\ast$opengl\+Buffers\+Manager)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_ab61803e7545778e7608b0f0fba8fa1cd}\label{classswarm_1_1Environment_ab61803e7545778e7608b0f0fba8fa1cd}} 
+void {\bfseries create\+Ant} (int id\+Nest, \mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager}{Opengl\+Buffers\+Manager}} $\ast$opengl\+Buffers\+Manager)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a061e325777466ad1f68c494408daca0f}\label{classswarm_1_1Environment_a061e325777466ad1f68c494408daca0f}} 
+void {\bfseries run} (int frame\+Counter)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a96176a293b7bf5c4230f344c65d78ea5}\label{classswarm_1_1Environment_a96176a293b7bf5c4230f344c65d78ea5}} 
+void {\bfseries draw} (\mbox{\hyperlink{classopengl_1_1render_1_1OpenglBuffersManager}{Opengl\+Buffers\+Manager}} $\ast$opengl\+Buffers\+Manager, \mbox{\hyperlink{classCamera}{Camera}} $\ast$camera)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a3b4b7d5a0deae6fb0377cb2f65f10be4}\label{classswarm_1_1Environment_a3b4b7d5a0deae6fb0377cb2f65f10be4}} 
+void {\bfseries move\+Ants} (int frame\+Counter)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_aca277a7586193f444570dde06c291157}\label{classswarm_1_1Environment_aca277a7586193f444570dde06c291157}} 
+void {\bfseries place\+Pheromone} (int frame\+Counter)
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_aae3d19d42d52bddf729b2ca4608a37b5}\label{classswarm_1_1Environment_aae3d19d42d52bddf729b2ca4608a37b5}} 
+void {\bfseries pheromone\+Evaporation} (int frame\+Counter)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a5849b5b5ff64d21d9f89bc7b044b7a15}\label{classswarm_1_1Environment_a5849b5b5ff64d21d9f89bc7b044b7a15}} 
+std\+::unique\+\_\+ptr$<$ uint8\+\_\+t\mbox{[}$\,$\mbox{]}$>$ {\bfseries pheromone\+Matrix}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_ab398a90e40ac06fd3221c493acef79eb}\label{classswarm_1_1Environment_ab398a90e40ac06fd3221c493acef79eb}} 
+\mbox{\hyperlink{classParameterAssigner}{Parameter\+Assigner}} $\ast$ {\bfseries parameter\+Assigner} = nullptr
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_aa99278a6a9ca476656fd9fbd655a6a8e}\label{classswarm_1_1Environment_aa99278a6a9ca476656fd9fbd655a6a8e}} 
+int {\bfseries place\+Pheromone\+Rate}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_ad6001797fa80cbc2e64f6794c9985243}\label{classswarm_1_1Environment_ad6001797fa80cbc2e64f6794c9985243}} 
+int {\bfseries pheromone\+Evaporation\+Rate}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_aec2c45678d48648c8b36145897ff8365}\label{classswarm_1_1Environment_aec2c45678d48648c8b36145897ff8365}} 
+int {\bfseries number\+Of\+Nests}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a0ac21202220de9980867a729c7d65f37}\label{classswarm_1_1Environment_a0ac21202220de9980867a729c7d65f37}} 
+int {\bfseries number\+Of\+Foods}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_abd9f12d2cd7a01d9de327e55ff86f8d9}\label{classswarm_1_1Environment_abd9f12d2cd7a01d9de327e55ff86f8d9}} 
+int {\bfseries number\+Of\+Ants}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a3f5bbf0f6cfe05572b9de674aa7d6171}\label{classswarm_1_1Environment_a3f5bbf0f6cfe05572b9de674aa7d6171}} 
+vector$<$ \mbox{\hyperlink{classswarm_1_1Anthill}{Anthill}} $\ast$ $>$ {\bfseries nests}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_ac27b9a0bc1d7df1318c589e9d49b7954}\label{classswarm_1_1Environment_ac27b9a0bc1d7df1318c589e9d49b7954}} 
+vector$<$ \mbox{\hyperlink{classswarm_1_1FoodSource}{Food\+Source}} $\ast$ $>$ {\bfseries foods}
+\item 
+\mbox{\Hypertarget{classswarm_1_1Environment_a7e4855bc2e2c6b757c7c84330163d23c}\label{classswarm_1_1Environment_a7e4855bc2e2c6b757c7c84330163d23c}} 
+vector$<$ \mbox{\hyperlink{classswarm_1_1Ant}{swarm\+::\+Ant}} $\ast$ $>$ {\bfseries ants}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the environment and defines/stores some parameters. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/swarm\+Environment/environment.\+h\item 
+src/swarm\+Environment/environment.\+cpp\end{DoxyCompactItemize}

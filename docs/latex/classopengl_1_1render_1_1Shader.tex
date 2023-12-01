@@ -1,0 +1,156 @@
+\hypertarget{classopengl_1_1render_1_1Shader}{}\doxysection{opengl\+::render\+::Shader Class Reference}
+\label{classopengl_1_1render_1_1Shader}\index{opengl::render::Shader@{opengl::render::Shader}}
+
+
+The \mbox{\hyperlink{classopengl_1_1render_1_1Shader}{Shader}} class represents an Open\+GL shader program.  
+
+
+
+
+{\ttfamily \#include $<$shader.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_a6736235a7ae2e8dda9a1fef262e58493}\label{classopengl_1_1render_1_1Shader_a6736235a7ae2e8dda9a1fef262e58493}} 
+\mbox{\hyperlink{classopengl_1_1render_1_1Shader_a6736235a7ae2e8dda9a1fef262e58493}{Shader}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classopengl_1_1render_1_1Shader}{Shader}} object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classopengl_1_1render_1_1Shader_a1e02b9eaba9f208a28ff0719106a9131}{extract\+Text}} (const char $\ast$file\+Path)
+\begin{DoxyCompactList}\small\item\em Extracts the text content from a file. \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{classopengl_1_1render_1_1Shader_aaf10034b86158e8a57fc93f291a88cb9}{load\+Shader}} (GLenum type, const char $\ast$file\+Path)
+\begin{DoxyCompactList}\small\item\em Loads and compiles a shader from a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1Shader_ae2cee34936f312df62e44d36c38c5f06}{create\+Program\+Link\+Shaders}} (const char $\ast$vertex\+Path, const char $\ast$fragment\+Path, const char $\ast$geometry\+Path, const char $\ast$pixel\+Path)
+\begin{DoxyCompactList}\small\item\em Creates and links a shader program from vertex, fragment, geometry, and pixel shaders. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_a182645db8c9af806942f102e41e4e045}\label{classopengl_1_1render_1_1Shader_a182645db8c9af806942f102e41e4e045}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1Shader_a182645db8c9af806942f102e41e4e045}{bind}} () const
+\begin{DoxyCompactList}\small\item\em Binds the shader program for rendering. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_ab9cd25c1d8680cd81695b5cf76a75c4f}\label{classopengl_1_1render_1_1Shader_ab9cd25c1d8680cd81695b5cf76a75c4f}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1Shader_ab9cd25c1d8680cd81695b5cf76a75c4f}{un\+Bind}} () const
+\begin{DoxyCompactList}\small\item\em Unbinds the shader program. \end{DoxyCompactList}\item 
+GLuint \mbox{\hyperlink{classopengl_1_1render_1_1Shader_a39c9704d4bbcc05cfc25e005410008c3}{get\+Program\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Returns the ID of the shader program. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_aae4fdb2807b6f48eee3f8dfb58042204}\label{classopengl_1_1render_1_1Shader_aae4fdb2807b6f48eee3f8dfb58042204}} 
+void \mbox{\hyperlink{classopengl_1_1render_1_1Shader_aae4fdb2807b6f48eee3f8dfb58042204}{dispose}} ()
+\begin{DoxyCompactList}\small\item\em Disposes the shader program and releases associated resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1Shader_ad9fdeb4f157a6e180226c647a9ad5f8d}{set\+Mat4}} (const std\+::string \&name, const glm\+::mat4 \&mat) const
+\begin{DoxyCompactList}\small\item\em Sets a 4x4 matrix uniform in the shader program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classopengl_1_1render_1_1Shader_a1d48e1a2c371fa29c64eb10901b8305d}{check\+Errors}} (GLuint shader\+Obj, std\+::string type)
+\begin{DoxyCompactList}\small\item\em Checks for compilation or linking errors in the shader object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classopengl_1_1render_1_1Shader}{Shader}} class represents an Open\+GL shader program. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_a1d48e1a2c371fa29c64eb10901b8305d}\label{classopengl_1_1render_1_1Shader_a1d48e1a2c371fa29c64eb10901b8305d}} 
+\index{opengl::render::Shader@{opengl::render::Shader}!checkErrors@{checkErrors}}
+\index{checkErrors@{checkErrors}!opengl::render::Shader@{opengl::render::Shader}}
+\doxysubsubsection{\texorpdfstring{checkErrors()}{checkErrors()}}
+{\footnotesize\ttfamily void opengl\+::render\+::\+Shader\+::check\+Errors (\begin{DoxyParamCaption}\item[{GLuint}]{shader\+Obj,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Checks for compilation or linking errors in the shader object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader\+Obj} & The ID of the shader object to check. \\
+\hline
+{\em type} & The type of the shader object (e.\+g., \char`\"{}\+VERTEX\char`\"{}, \char`\"{}\+FRAGMENT\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_ae2cee34936f312df62e44d36c38c5f06}\label{classopengl_1_1render_1_1Shader_ae2cee34936f312df62e44d36c38c5f06}} 
+\index{opengl::render::Shader@{opengl::render::Shader}!createProgramLinkShaders@{createProgramLinkShaders}}
+\index{createProgramLinkShaders@{createProgramLinkShaders}!opengl::render::Shader@{opengl::render::Shader}}
+\doxysubsubsection{\texorpdfstring{createProgramLinkShaders()}{createProgramLinkShaders()}}
+{\footnotesize\ttfamily void opengl\+::render\+::\+Shader\+::create\+Program\+Link\+Shaders (\begin{DoxyParamCaption}\item[{const char $\ast$}]{vertex\+Path,  }\item[{const char $\ast$}]{fragment\+Path,  }\item[{const char $\ast$}]{geometry\+Path,  }\item[{const char $\ast$}]{pixel\+Path }\end{DoxyParamCaption})}
+
+
+
+Creates and links a shader program from vertex, fragment, geometry, and pixel shaders. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+Path} & The path to the vertex shader file. \\
+\hline
+{\em fragment\+Path} & The path to the fragment shader file. \\
+\hline
+{\em geometry\+Path} & The path to the geometry shader file. \\
+\hline
+{\em pixel\+Path} & The path to the pixel shader file. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_a1e02b9eaba9f208a28ff0719106a9131}\label{classopengl_1_1render_1_1Shader_a1e02b9eaba9f208a28ff0719106a9131}} 
+\index{opengl::render::Shader@{opengl::render::Shader}!extractText@{extractText}}
+\index{extractText@{extractText}!opengl::render::Shader@{opengl::render::Shader}}
+\doxysubsubsection{\texorpdfstring{extractText()}{extractText()}}
+{\footnotesize\ttfamily std\+::string opengl\+::render\+::\+Shader\+::extract\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Extracts the text content from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The path to the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The text content of the file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_a39c9704d4bbcc05cfc25e005410008c3}\label{classopengl_1_1render_1_1Shader_a39c9704d4bbcc05cfc25e005410008c3}} 
+\index{opengl::render::Shader@{opengl::render::Shader}!getProgramID@{getProgramID}}
+\index{getProgramID@{getProgramID}!opengl::render::Shader@{opengl::render::Shader}}
+\doxysubsubsection{\texorpdfstring{getProgramID()}{getProgramID()}}
+{\footnotesize\ttfamily GLuint opengl\+::render\+::\+Shader\+::get\+Program\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the ID of the shader program. 
+
+\begin{DoxyReturn}{Returns}
+The ID of the shader program. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_aaf10034b86158e8a57fc93f291a88cb9}\label{classopengl_1_1render_1_1Shader_aaf10034b86158e8a57fc93f291a88cb9}} 
+\index{opengl::render::Shader@{opengl::render::Shader}!loadShader@{loadShader}}
+\index{loadShader@{loadShader}!opengl::render::Shader@{opengl::render::Shader}}
+\doxysubsubsection{\texorpdfstring{loadShader()}{loadShader()}}
+{\footnotesize\ttfamily GLuint opengl\+::render\+::\+Shader\+::load\+Shader (\begin{DoxyParamCaption}\item[{GLenum}]{type,  }\item[{const char $\ast$}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Loads and compiles a shader from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the shader (e.\+g., GL\+\_\+\+VERTEX\+\_\+\+SHADER, GL\+\_\+\+FRAGMENT\+\_\+\+SHADER). \\
+\hline
+{\em file\+Path} & The path to the shader file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of the loaded shader. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classopengl_1_1render_1_1Shader_ad9fdeb4f157a6e180226c647a9ad5f8d}\label{classopengl_1_1render_1_1Shader_ad9fdeb4f157a6e180226c647a9ad5f8d}} 
+\index{opengl::render::Shader@{opengl::render::Shader}!setMat4@{setMat4}}
+\index{setMat4@{setMat4}!opengl::render::Shader@{opengl::render::Shader}}
+\doxysubsubsection{\texorpdfstring{setMat4()}{setMat4()}}
+{\footnotesize\ttfamily void opengl\+::render\+::\+Shader\+::set\+Mat4 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const glm\+::mat4 \&}]{mat }\end{DoxyParamCaption}) const}
+
+
+
+Sets a 4x4 matrix uniform in the shader program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the uniform variable. \\
+\hline
+{\em mat} & The 4x4 matrix to set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/opengl/render/\mbox{\hyperlink{shader_8h}{shader.\+h}}\item 
+src/opengl/render/shader.\+cpp\end{DoxyCompactItemize}

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['pollevents_22',['pollEvents',['../classsimulator_1_1Simulator.html#abb4f76b417b88eea6a1db661cbb41ba7',1,'simulator::Simulator']]],
-  ['post_5frender_23',['post_render',['../classsimulator_1_1Simulator.html#a60f719399f8240e4851bfd38fa6d73ff',1,'simulator::Simulator']]],
-  ['pre_5frender_24',['pre_render',['../classsimulator_1_1Simulator.html#abfb9e64d18fb2accbce376501b82ab27',1,'simulator::Simulator']]]
+  ['bind_124',['bind',['../classopengl_1_1render_1_1Shader.html#a182645db8c9af806942f102e41e4e045',1,'opengl::render::Shader::bind()'],['../classopengl_1_1render_1_1VBO.html#adc87ed135037846c162fb5ca597a1768',1,'opengl::render::VBO::bind()'],['../classopengl_1_1render_1_1EBO.html#a78ccf8e430636f201e28b5fea34a00ed',1,'opengl::render::EBO::bind()']]]
 ];
